@@ -1,5 +1,6 @@
 package com.example.yunweiqiang.pingterest;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -51,6 +52,8 @@ public class LOGINPAGE extends AppCompatActivity {
                                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                                 String userEmail = user.getEmail();
                                 Toast.makeText(LOGINPAGE.this, "Welcome back! " + userEmail, Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(LOGINPAGE.this, FirstPage.class);
+                                startActivity(intent);
                             }
 
                             else{

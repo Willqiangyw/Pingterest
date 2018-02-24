@@ -25,7 +25,11 @@
             android:name=".SignUpPage"
             android:parentActivityName=".MainActivity"
             tools:targetApi="jelly_bean" />
-        <activity android:name=".FirstPage"></activity>
+        <activity
+            android:name=".FirstPage"
+            android:parentActivityName=".MainActivity"
+            tools:targetApi="jelly_bean" />
+        <activity android:name=".Me"></activity>
     </application>
 
 </manifest>

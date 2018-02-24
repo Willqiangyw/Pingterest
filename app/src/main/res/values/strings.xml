@@ -4,4 +4,8 @@
     <string name="password_check">Password Check</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
+    <string name="find_coach">find coach</string>
+    <string name="find_player">find player</string>
+    <string name="equipments">equipments</string>
+    <string name="me">Me</string>
 </resources>
