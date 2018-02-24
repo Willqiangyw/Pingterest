@@ -19,4 +19,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void signUp (View view){
+        //FOR SignIn Button, click and open another activity for signing in
+        Intent intent = new Intent (this, SignUpPage.class);
+        startActivity(intent);
+    }
+
 }

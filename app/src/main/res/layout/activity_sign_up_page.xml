@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.yunweiqiang.pingterest.LOGINPAGE">
-
+    tools:context="com.example.yunweiqiang.pingterest.SignUpPage">
     <EditText
         android:id="@+id/editTextEmailSignUp"
         android:layout_width="wrap_content"
@@ -58,15 +57,42 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextEmailSignUp" />
 
     <Button
-        android:id="@+id/buttonSignIn"
+        android:id="@+id/buttonSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:onClick="submit"
-        android:text="Submit"
+        android:text="@string/submit"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPasswordSignUp"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="@+id/editTextPasswordSignUp"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordSignUpCheck" />
+
+    <TextView
+        android:id="@+id/textViewPasswordSignUpCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/password_check"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/editTextPasswordSignUp"
         app:layout_constraintStart_toStartOf="@+id/editTextPasswordSignUp"
         app:layout_constraintTop_toBottomOf="@+id/editTextPasswordSignUp" />
+
+    <EditText
+        android:id="@+id/editTextPasswordSignUpCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/textViewPasswordSignUpCheck"
+        app:layout_constraintHorizontal_bias="0.693"
+        app:layout_constraintStart_toStartOf="@+id/textViewPasswordSignUpCheck"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPasswordSignUpCheck" />
 </android.support.constraint.ConstraintLayout>

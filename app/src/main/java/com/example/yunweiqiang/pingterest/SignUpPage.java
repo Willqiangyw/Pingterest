@@ -12,53 +12,61 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
-public class LOGINPAGE extends AppCompatActivity {
+import org.w3c.dom.Text;
+
+public class SignUpPage extends AppCompatActivity {
 
     private EditText mEmailEditText;
     private EditText mPasswordEditText;
+    private EditText mPasswordCheckEditText;
 
     private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_loginpage);
+        setContentView(R.layout.activity_sign_up_page);
 
         mAuth = FirebaseAuth.getInstance();
 
         mEmailEditText = (EditText) findViewById(R.id.editTextEmailSignUp);
         mPasswordEditText = (EditText) findViewById(R.id.editTextPasswordSignUp);
+        mPasswordCheckEditText = (EditText) findViewById(R.id.editTextPasswordSignUpCheck);
     }
 
-    //method for submit button, click and submit email & password
+    //method for submit button, click and submit email & password & passwordCheck
     public void submit(View view){
         String email = mEmailEditText.getText().toString();
         String password = mPasswordEditText.getText().toString();
+        String passwordCheck = mPasswordCheckEditText.getText().toString();
 
-        if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
-            Toast.makeText(this, "Please fill in email and password", Toast.LENGTH_LONG).show();
+        if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(passwordCheck)){
+
+            Toast.makeText(this, "Please fill in all blanks", Toast.LENGTH_LONG).show();
+
+        }
+
+        else if(!password.equals(passwordCheck)){
+            Toast.makeText(this, "Password not match", Toast.LENGTH_LONG).show();
         }
 
         else{
-            mAuth.signInWithEmailAndPassword(email, password)
+            mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-
                             if(task.isSuccessful()){
-                                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                                String userEmail = user.getEmail();
-                                Toast.makeText(LOGINPAGE.this, "Welcome back! " + userEmail, Toast.LENGTH_LONG).show();
+
+                                Toast.makeText(SignUpPage.this, "Congratulation, you have successfully signed up", Toast.LENGTH_LONG).show();
+
                             }
 
                             else{
-                                Toast.makeText(LOGINPAGE.this, "Wrong user email or password", Toast.LENGTH_LONG).show();
+                                Toast.makeText(SignUpPage.this, "Signing up fails, please try again later", Toast.LENGTH_LONG).show();
                             }
                         }
                     });
-
         }
     }
 }
