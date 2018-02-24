@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "234412542999",
+    "firebase_url": "https://pingterest-ffca7.firebaseio.com",
+    "project_id": "pingterest-ffca7",
+    "storage_bucket": "pingterest-ffca7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234412542999:android:0e0899d91d138b1c",
+        "android_client_info": {
+          "package_name": "com.example.yunweiqiang.pingterest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "234412542999-22uiq5ib716am3hj8c4f3hvrkh321se7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.yunweiqiang.pingterest",
+            "certificate_hash": "adf40e127ed0581e8d4558c4e673a6e3edd2d7ba"
+          }
+        },
+        {
+          "client_id": "234412542999-3be1s060upphqdfav7f2l18pa6iop72r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRBgJCvE6Di3lNDyKcxW6V4Ok45CQHKQI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "234412542999-3be1s060upphqdfav7f2l18pa6iop72r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
