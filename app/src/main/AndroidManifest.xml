@@ -29,7 +29,9 @@
             android:name=".FirstPage"
             android:parentActivityName=".MainActivity"
             tools:targetApi="jelly_bean" />
-        <activity android:name=".Me"></activity>
+        <activity android:name=".Me"
+            android:parentActivityName=".FirstPage"
+            tools:targetApi="jelly_bean" />
     </application>
 
 </manifest>
