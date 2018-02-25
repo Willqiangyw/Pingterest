@@ -41,4 +41,30 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="20dp" />
+
+    <Button
+        android:id="@+id/buttonCheckStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:onClick="checkStatus"
+        android:text="Check Status"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SignInButton" />
+
+    <Button
+        android:id="@+id/buttonSignOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:onClick="signOut"
+        android:text="Sign Out"
+        app:layout_constraintEnd_toEndOf="@+id/buttonCheckStatus"
+        app:layout_constraintStart_toStartOf="@+id/buttonCheckStatus"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCheckStatus" />
 </android.support.constraint.ConstraintLayout>
