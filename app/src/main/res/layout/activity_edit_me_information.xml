@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yunweiqiang.pingterest.EditMeInformation">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Please fill in all information"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNameEdit"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextNameEdit"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUserEmailEdit" />
+
+    <EditText
+        android:id="@+id/editTextNameEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editTextAgeEdit"
+        app:layout_constraintEnd_toEndOf="@+id/editTextAgeEdit"
+        app:layout_constraintStart_toStartOf="@+id/editTextAgeEdit"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/editTextAgeEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Age"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editTextGenderEdit"
+        app:layout_constraintEnd_toEndOf="@+id/editTextGenderEdit"
+        app:layout_constraintStart_toStartOf="@+id/editTextGenderEdit"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNameEdit" />
+
+    <EditText
+        android:id="@+id/editTextGenderEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Gender"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editTextLevelEdit"
+        app:layout_constraintEnd_toEndOf="@+id/editTextLevelEdit"
+        app:layout_constraintStart_toStartOf="@+id/editTextLevelEdit"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAgeEdit" />
+
+    <EditText
+        android:id="@+id/editTextLevelEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Skill Level"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editTextCityEdit"
+        app:layout_constraintEnd_toEndOf="@+id/editTextCityEdit"
+        app:layout_constraintStart_toStartOf="@+id/editTextCityEdit"
+        app:layout_constraintTop_toBottomOf="@+id/editTextGenderEdit" />
+
+    <EditText
+        android:id="@+id/editTextCityEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="City"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/buttonConfirmEdit"
+        app:layout_constraintEnd_toEndOf="@+id/buttonConfirmEdit"
+        app:layout_constraintStart_toStartOf="@+id/buttonConfirmEdit"
+        app:layout_constraintTop_toBottomOf="@+id/editTextLevelEdit" />
+
+    <Button
+        android:id="@+id/buttonConfirmEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:onClick="confirm"
+        android:text="Confirm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCityEdit" />
+
+    <TextView
+        android:id="@+id/textViewUserEmailEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="hey"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

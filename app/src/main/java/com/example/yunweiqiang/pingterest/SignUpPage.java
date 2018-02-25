@@ -1,5 +1,6 @@
 package com.example.yunweiqiang.pingterest;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -59,7 +60,9 @@ public class SignUpPage extends AppCompatActivity {
                             if(task.isSuccessful()){
 
                                 Toast.makeText(SignUpPage.this, "Congratulation, you have successfully signed up", Toast.LENGTH_LONG).show();
-
+                                Intent intent = new Intent(SignUpPage.this, EditMeInformation.class);
+                                startActivity(intent);
+                                finish();
                             }
 
                             else{

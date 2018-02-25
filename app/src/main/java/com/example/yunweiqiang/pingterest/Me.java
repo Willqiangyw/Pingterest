@@ -1,8 +1,10 @@
 package com.example.yunweiqiang.pingterest;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -88,5 +90,10 @@ public class Me extends AppCompatActivity {
                 Log.w("E_Value", "something went wrong", databaseError.toException());
             }
         });
+    }
+
+    public void edit(View view){
+        Intent intent = new Intent(this, EditMeInformation.class);
+        startActivity(intent);
     }
 }
