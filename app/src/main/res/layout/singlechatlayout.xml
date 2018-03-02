@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/singleChatLayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:background="@drawable/bubble_out"
+    android:orientation="vertical"
+    android:paddingBottom="5dp">
 
     <TextView
         android:id="@+id/userNameChatTextView"
@@ -11,7 +14,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_weight="1"
-        android:padding="2dp"
         android:text="WillQiang"
         android:textColor="@color/colorPrimaryDark"
         android:textStyle="italic" />
