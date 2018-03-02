@@ -33,9 +33,14 @@
             android:name=".Me"
             android:parentActivityName=".FirstPage"
             tools:targetApi="jelly_bean" />
-        <activity android:name=".EditMeInformation"
+        <activity
+            android:name=".EditMeInformation"
             android:parentActivityName=".Me"
             tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".bottomNavigation"
+            android:label="@string/title_activity_bottom_navigation" />
+        <activity android:name=".ChatActivity"></activity>
     </application>
 
 </manifest>

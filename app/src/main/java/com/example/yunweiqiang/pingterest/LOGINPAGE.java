@@ -50,6 +50,7 @@ public class LOGINPAGE extends AppCompatActivity {
 
                             if(task.isSuccessful()){
                                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                assert user != null;
                                 String userEmail = user.getEmail();
                                 Toast.makeText(LOGINPAGE.this, "Welcome back! " + userEmail, Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(LOGINPAGE.this, FirstPage.class);

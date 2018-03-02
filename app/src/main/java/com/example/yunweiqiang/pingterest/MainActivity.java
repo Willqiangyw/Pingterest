@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+
     public void checkStatus (View view){
 
         mAuth = FirebaseAuth.getInstance();
@@ -61,6 +63,19 @@ public class MainActivity extends AppCompatActivity {
             //refresh this activity
 //            finish();
 //            startActivity(getIntent());
+        }
+        else{
+            Toast.makeText(this, "You didn't sign in", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void chat (View view){
+
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+        if(user!=null) {
+            Intent intent = new Intent(this, ChatActivity.class);
+            startActivity(intent);
         }
         else{
             Toast.makeText(this, "You didn't sign in", Toast.LENGTH_LONG).show();

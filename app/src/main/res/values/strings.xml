@@ -9,4 +9,9 @@
     <string name="equipments">equipments</string>
     <string name="me">Me</string>
     <string name="edit">Edit</string>
+    <string name="title_activity_bottom_navigation">bottomNavigation</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="send">Send</string>
 </resources>
