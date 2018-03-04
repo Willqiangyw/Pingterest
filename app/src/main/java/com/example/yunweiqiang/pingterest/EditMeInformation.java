@@ -73,7 +73,7 @@ public class EditMeInformation extends AppCompatActivity {
             Toast.makeText(EditMeInformation.this, "please fill in all blanks", Toast.LENGTH_LONG).show();
         }
         else{
-            mDatabase.child("Name").setValue(name);
+            mDatabase.child("name").setValue(name);
             mDatabase.child("Age").setValue(age);
             mDatabase.child("Gender").setValue(gender);
             mDatabase.child("Level").setValue(level);

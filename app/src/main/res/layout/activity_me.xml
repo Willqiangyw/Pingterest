@@ -97,4 +97,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textViewUserCity"
         app:layout_constraintStart_toStartOf="@+id/textViewUserCity" />
+
 </android.support.constraint.ConstraintLayout>

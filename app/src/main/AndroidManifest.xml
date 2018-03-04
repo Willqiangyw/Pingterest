@@ -40,7 +40,9 @@
         <activity
             android:name=".bottomNavigation"
             android:label="@string/title_activity_bottom_navigation" />
-        <activity android:name=".ChatActivity"></activity>
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".FindPlyer" />
+        <activity android:name=".findplayer2"></activity>
     </application>
 
 </manifest>
