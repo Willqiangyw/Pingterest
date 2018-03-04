@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,8 +44,11 @@ public class ChatActivity extends AppCompatActivity {
     private RecyclerView mChatRecyclerView;
 
     private FirebaseRecyclerAdapter<Message, messageViewHolder> adapter;
+    private FirebaseRecyclerAdapter<Message, messageViewHolder> adapter2;
 
     private DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
+
+//    public static boolean flag = false;
     String key = "";
 
     @Override
@@ -85,17 +89,54 @@ public class ChatActivity extends AppCompatActivity {
         adapter = new FirebaseRecyclerAdapter<Message, messageViewHolder>(
                 options
         ) {
+
+            boolean flag2 = false;
+//            ViewGroup temp1;
+//            int temp2;
+//            protected boolean checkFlag()
+
             @Override
             protected void onBindViewHolder(@NonNull messageViewHolder holder, int position, @NonNull Message model) {
                     holder.setContent(model.getContent(), model.getUser(), model.getTime());
+//                    holder.se
+//                    if(model.getUser().equals(userKey))
+//                        flag2 = true;
+//                    else
+//                        flag2 = false;
+//                    onCreateViewHolder(temp1, temp2)
             }
 
             @Override
             public messageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.singlechatlayout, parent, false);
+//                temp1 = parent;
+//                temp2 = viewType;
+//                checkFlag();
+                View view;
+//                if(!flag2) {
+                    view = LayoutInflater.from(parent.getContext()).inflate(R.layout.singlechatlayout, parent, false);
+//                }
+//                else {
+//                    view = LayoutInflater.from(parent.getContext()).inflate(R.layout.singlechatlayout2, parent, false);
+////                    LayoutInflater.from(parent.getContext()).inflate(1)
+//                }
+                Log.d("HEYTHERE",parent.getContext().toString());
                 return new messageViewHolder(view);
             }
         };
+//        adapter2 = new FirebaseRecyclerAdapter<Message, messageViewHolder>(
+//                options
+//        ) {
+//            @Override
+//            protected void onBindViewHolder(@NonNull messageViewHolder holder, int position, @NonNull Message model) {
+//                holder.setContent(model.getContent(), model.getUser(), model.getTime());
+//            }
+//
+//            @Override
+//            public messageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+//                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.singlechatlayout2, parent, false);
+//                return new messageViewHolder(view);
+//            }
+//        };
         mChatRecyclerView.setAdapter(adapter);
         adapter.startListening();
     }
@@ -134,6 +175,7 @@ public class ChatActivity extends AppCompatActivity {
         public messageViewHolder(View itemView) {
             super(itemView);
             mView = itemView;
+//            mView.layout
         }
 
         public void setContent(String content, String user, String time) {

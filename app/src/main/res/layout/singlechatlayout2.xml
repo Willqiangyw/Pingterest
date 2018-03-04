@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/singleChatLayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="5dp"
+    android:layout_gravity="right"
+    android:background="@drawable/bubble_in"
+    android:gravity="right"
     android:orientation="vertical"
     android:paddingBottom="5dp">
 
@@ -12,30 +15,33 @@
         android:id="@+id/userNameChatTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
         android:layout_weight="1"
         android:text="WillQiang"
         android:textColor="@color/colorPrimaryDark"
-        android:textStyle="italic" />
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/messagecontentTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
         android:layout_weight="1"
         android:text="Hello, test message here"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userNameChatTextView" />
 
     <TextView
         android:id="@+id/timeTextView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
         android:layout_weight="1"
         android:padding="1dp"
         android:text="12:00pm"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/messagecontentTextView" />
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
