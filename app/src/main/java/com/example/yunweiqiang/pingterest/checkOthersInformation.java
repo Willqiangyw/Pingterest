@@ -16,14 +16,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Arrays;
 import java.util.Map;
 
-public class Me extends AppCompatActivity {
+public class checkOthersInformation extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseUser user;
 
-    private TextView mUserEmailTextView;
     private TextView mUserNameTextView;
     private TextView mUserAgeTextView;
     private TextView mUserGenderTextView;
@@ -34,39 +34,38 @@ public class Me extends AppCompatActivity {
     private String userKey;
 
     private DatabaseReference mDatabase;
-//    private Firebase
+
+    private String otherKey;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_me);
+        setContentView(R.layout.activity_check_others_information);
+
+        Intent in = getIntent();
+        otherKey = in.getStringExtra("key");
+        Toast.makeText(this,otherKey,Toast.LENGTH_LONG).show();
 
         mAuth = FirebaseAuth.getInstance();
-//        mDatabase = FirebaseDatabase.getInstance().getReference("message");
-//        mDatabase.setValue("Hello, World!");
-
-        mUserEmailTextView = findViewById(R.id.textViewUserEmail);
         user = mAuth.getCurrentUser();
 
         if(user!=null) {
             userEmail = user.getEmail();
-            mUserEmailTextView.setText("Hey, "+userEmail);
+            userKey = userEmail.substring(0,userEmail.indexOf('@'));
         }
         else{
             Toast.makeText(this, "no user", Toast.LENGTH_LONG).show();
         }
 
-        userKey = userEmail.substring(0,userEmail.indexOf('@'));
-        mDatabase = FirebaseDatabase.getInstance().getReference("Users").child(userKey);
+        mDatabase = FirebaseDatabase.getInstance().getReference("Users").child(otherKey);
 
         mUserNameTextView = findViewById(R.id.textViewOtherName);
         mUserAgeTextView = findViewById(R.id.textViewOtherAge);
         mUserCityTextView = findViewById(R.id.textViewOtherCity);
         mUserLevelTextView = findViewById(R.id.textViewOtherLevel);
         mUserGenderTextView = findViewById(R.id.textViewOtherGender);
-//        mUserNameTextView.setText(userKey);
-        Log.d("E_VALUE", "The key is " + userKey);
-//        mDatabase.child("Users").child(userKey).getRef("Key");
+
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -92,8 +91,12 @@ public class Me extends AppCompatActivity {
         });
     }
 
-    public void edit(View view){
-        Intent intent = new Intent(this, EditMeInformation.class);
+    public void chat(View view){
+        Intent intent = new Intent(this, ChatActivity.class);
+        String[] temp = {userKey, otherKey};
+        Arrays.sort(temp);
+        String pass = temp[0] +"+"+ temp[1];
+        intent.putExtra("key", pass);
         startActivity(intent);
     }
 }

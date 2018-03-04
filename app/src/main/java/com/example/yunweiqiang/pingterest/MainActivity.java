@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         user = mAuth.getCurrentUser();
         if(user!=null) {
             Intent intent = new Intent(this, ChatActivity.class);
+            intent.putExtra("key", "test");
             startActivity(intent);
         }
         else{

@@ -63,8 +63,8 @@ public class findplayer2 extends AppCompatActivity {
             protected void populateView(View v, UserInfomation model, int position) {
                 // Bind the Chat to the view
                 // ...
-                TextView temp = v.findViewById(R.id.textViewUserInfo);
-                temp.setText(model.getName());
+                TextView name = v.findViewById(R.id.textViewUserInfo);
+                name.setText(model.getName());
             }
         };
 
@@ -76,12 +76,14 @@ public class findplayer2 extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                Log.d("abc", "hahahaha");
-                Intent intent = new Intent(findplayer2.this, ChatActivity.class);
-                startActivity(intent);
-//                UserInfomation itemRef = adapter.getItem(position);
-//
-//                Toast toast = Toast.makeText(findplayer2.this, itemRef.getName(), Toast.LENGTH_SHORT);
+//                Intent intent = new Intent(findplayer2.this, ChatActivity.class);
+                Intent intent = new Intent(findplayer2.this, checkOthersInformation.class);
+                UserInfomation itemRef = adapter.getItem(position);
+
+//                Toast toast = Toast.makeText(findplayer2.this, itemRef.getKey(), Toast.LENGTH_SHORT);
 //                toast.show();
+                intent.putExtra("key", itemRef.getKey());
+                startActivity(intent);
             }
         });
     }

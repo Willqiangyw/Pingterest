@@ -1,5 +1,6 @@
 package com.example.yunweiqiang.pingterest;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -44,6 +45,7 @@ public class ChatActivity extends AppCompatActivity {
     private FirebaseRecyclerAdapter<Message, messageViewHolder> adapter;
 
     private DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
+    String key = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +54,9 @@ public class ChatActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mtypeInEditText = (EditText) findViewById(R.id.typeInEditText);
-        mDatabase = FirebaseDatabase.getInstance().getReference("Chats").child("test");
+        Intent in = getIntent();
+        key = in.getStringExtra("key");
+        mDatabase = FirebaseDatabase.getInstance().getReference("Chats").child(key);
 
         mChatRecyclerView = (RecyclerView) findViewById(R.id.chatRecyclerView);
         mChatRecyclerView.setHasFixedSize(true);
@@ -142,4 +146,5 @@ public class ChatActivity extends AppCompatActivity {
 
         }
     }
+
 }

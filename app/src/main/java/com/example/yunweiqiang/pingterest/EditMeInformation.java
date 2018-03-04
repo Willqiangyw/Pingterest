@@ -74,10 +74,11 @@ public class EditMeInformation extends AppCompatActivity {
         }
         else{
             mDatabase.child("name").setValue(name);
-            mDatabase.child("Age").setValue(age);
-            mDatabase.child("Gender").setValue(gender);
-            mDatabase.child("Level").setValue(level);
-            mDatabase.child("City").setValue(city);
+            mDatabase.child("age").setValue(age);
+            mDatabase.child("gender").setValue(gender);
+            mDatabase.child("level").setValue(level);
+            mDatabase.child("city").setValue(city);
+            mDatabase.child("key").setValue(userKey);
             Toast.makeText(EditMeInformation.this, "Successfully submit", Toast.LENGTH_LONG).show();
             finish();
         }
