@@ -7,7 +7,7 @@
     tools:context="com.example.yunweiqiang.pingterest.checkOthersInformation">
 
     <TextView
-        android:id="@+id/textViewOtherLevel"
+        android:id="@+id/textViewUserLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -30,7 +30,7 @@
         android:layout_marginTop="16dp"
         android:text="TextView"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewOtherLevel"
+        app:layout_constraintBottom_toTopOf="@+id/textViewUserLevel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,6 +94,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewOtherLevel" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUserLevel" />
 
 </android.support.constraint.ConstraintLayout>

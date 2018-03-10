@@ -27,4 +27,9 @@ public class FirstPage extends AppCompatActivity {
         Intent intent = new Intent(this, findplayer2.class);
         startActivity(intent);
     }
+
+    public void Equipment(View view){
+        Intent intent = new Intent(this, SearchActivity.class);
+        startActivity(intent);
+    }
 }

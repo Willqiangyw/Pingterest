@@ -59,11 +59,11 @@ public class Me extends AppCompatActivity {
         userKey = userEmail.substring(0,userEmail.indexOf('@'));
         mDatabase = FirebaseDatabase.getInstance().getReference("Users").child(userKey);
 
-        mUserNameTextView = findViewById(R.id.textViewOtherName);
-        mUserAgeTextView = findViewById(R.id.textViewOtherAge);
-        mUserCityTextView = findViewById(R.id.textViewOtherCity);
-        mUserLevelTextView = findViewById(R.id.textViewOtherLevel);
-        mUserGenderTextView = findViewById(R.id.textViewOtherGender);
+        mUserNameTextView = findViewById(R.id.textViewUserName);
+        mUserAgeTextView = findViewById(R.id.textViewUserAge);
+        mUserCityTextView = findViewById(R.id.textViewUserCity);
+        mUserLevelTextView = findViewById(R.id.textViewUserLevel);
+        mUserGenderTextView = findViewById(R.id.textViewUserGender);
 //        mUserNameTextView.setText(userKey);
         Log.d("E_VALUE", "The key is " + userKey);
 //        mDatabase.child("Users").child(userKey).getRef("Key");
