@@ -63,7 +63,7 @@ public class checkOthersInformation extends AppCompatActivity {
         mUserNameTextView = findViewById(R.id.textViewOtherName);
         mUserAgeTextView = findViewById(R.id.textViewOtherAge);
         mUserCityTextView = findViewById(R.id.textViewOtherCity);
-        mUserLevelTextView = findViewById(R.id.textViewOtherLevel);
+        mUserLevelTextView = findViewById(R.id.textViewUserLevel);
         mUserGenderTextView = findViewById(R.id.textViewOtherGender);
 
         mDatabase.addValueEventListener(new ValueEventListener() {
