@@ -17,4 +17,17 @@
     <string name="search">Search</string>
     <string name="search_hint">Search Me</string>
     <string name="app_label">value</string>
+    <string-array name="gender">
+        <item>Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string-array name="skill_level">
+        <item>Skill level</item>
+        <item>Beginner</item>
+        <item>Intermediate</item>
+        <item>Amatuer</item>
+        <item>Professional</item>
+        <item>Expert</item>
+    </string-array>
 </resources>

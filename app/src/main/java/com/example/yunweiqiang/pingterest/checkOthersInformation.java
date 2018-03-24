@@ -74,11 +74,17 @@ public class checkOthersInformation extends AppCompatActivity {
                 String userName = map.get("name");
                 String userAge = map.get("age");
                 String userCity = map.get("city");
+                String userState = "";
+                String userZip = "";
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                    userState = map.getOrDefault("state", "");
+                    userZip = map.getOrDefault("zip", "");
+                }
                 String userLevel = map.get("level");
                 String userGender = map.get("gender");
 
                 mUserAgeTextView.setText(userAge);
-                mUserCityTextView.setText(userCity);
+                mUserCityTextView.setText(userCity + "," + userState + "," + userZip);
                 mUserNameTextView.setText(userName);
                 mUserLevelTextView.setText(userLevel);
                 mUserGenderTextView.setText(userGender);
