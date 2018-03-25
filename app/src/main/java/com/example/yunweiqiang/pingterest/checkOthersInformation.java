@@ -105,4 +105,11 @@ public class checkOthersInformation extends AppCompatActivity {
         intent.putExtra("key", pass);
         startActivity(intent);
     }
+
+    public void rate(View view){
+        Intent intent = new Intent(this, RatingActivity.class);
+        intent.putExtra("otherkey", otherKey);
+        intent.putExtra("userKey", userKey);
+        startActivity(intent);
+    }
 }
