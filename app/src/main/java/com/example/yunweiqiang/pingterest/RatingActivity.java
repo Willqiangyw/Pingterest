@@ -31,7 +31,7 @@ public class RatingActivity extends AppCompatActivity {
         userKey = in.getStringExtra("userKey");
         ratingBar  = (RatingBar) findViewById(R.id.ratingBar);
         mUserNameTextView = (TextView) findViewById(R.id.textViewUserName);
-        mUserNameTextView.setText(userKey);
+        mUserNameTextView.setText(otherKey);
         mDatabase = FirebaseDatabase.getInstance().getReference("Users").child(otherKey).child("rate");
     }
 
