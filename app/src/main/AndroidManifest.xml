@@ -59,7 +59,11 @@
             <!-- <meta-data android:name="android.app.searchable" -->
             <!-- android:resource="@xml/searchable" /> -->
         </activity>
-        <activity android:name=".EquipmentInfo"></activity>
+        <activity android:name=".EquipmentInfo" />
+        <activity
+            android:name=".EquipmentInformation"
+            android:label="@string/title_activity_equipment_information"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

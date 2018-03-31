@@ -20,16 +20,17 @@ import java.util.Map;
 
 public class EquipmentInfo extends AppCompatActivity {
 
-    private FirebaseUser user;
+//    private FirebaseUser user;
 
-    private TextView mItemName;
+    private TextView mBrand;
     private TextView mItemDescription;
+    private TextView mItemName;
     private TextView mItemPrice;
     private TextView mSellerInfo;
 
 
-    private String userEmail;
-    private String userKey;
+//    private String userEmail;
+//    private String userKey;
 
     private DatabaseReference mDatabase;
 
@@ -44,13 +45,17 @@ public class EquipmentInfo extends AppCompatActivity {
         TextView itemName = (TextView) findViewById(R.id.ItemName);
         itemName.setText(itemNameString);
 
+        Log.w("E_Value", itemNameString);
+
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Equipments").child(itemNameString);
 
-        mItemName = findViewById(R.id.ItemName);
+        mBrand = findViewById(R.id.ItemBrand);
         mItemDescription= findViewById(R.id.ItemDescription);
+        mItemName = findViewById(R.id.ItemName);
         mItemPrice = findViewById(R.id.ItemPrice);
         mSellerInfo= findViewById(R.id.Seller);
+
 
        // Log.d("E_VALUE", "The key is " + userKey);
 
@@ -59,13 +64,15 @@ public class EquipmentInfo extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Map<String,String> map =  (Map) dataSnapshot.getValue();
 //                Log.d("E_Value", "get from data! " + dataSnapshot.getValue());
-                String description = map.get("ItemDescription");
-                String name = map.get("ItemName");
-                String price = map.get("ItemPrice");
-                String seller = map.get("SellerInfo");
+                String brand = map.get("brand");
+                String description = map.get("itemDescription");
+                String name = map.get("itemName");
+                String price = map.get("itemPrice");
+                String seller = map.get("sellerInfo"); // This is the branch under equipment of firebase
 
-                mItemName.setText(description);
-                mItemDescription.setText(name);
+                mBrand.setText(brand);
+                mItemDescription.setText(description);
+                mItemName.setText(name);
                 mItemPrice.setText(price);
                 mSellerInfo.setText(seller);
 

@@ -17,4 +17,6 @@
     <string name="search">Search</string>
     <string name="search_hint">Search Me</string>
     <string name="app_label">value</string>
+    <string name="title_activity_view_database">viewDatabase</string>
+    <string name="title_activity_equipment_information">EquipmentInformation</string>
 </resources>
