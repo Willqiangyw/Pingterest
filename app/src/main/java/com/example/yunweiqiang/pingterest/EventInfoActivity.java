@@ -19,33 +19,35 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Arrays;
 import java.util.Map;
 
-public class checkOthersInformation extends AppCompatActivity {
+public class EventInfoActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseUser user;
 
-    private TextView mUserNameTextView;
-    private TextView mUserAgeTextView;
-    private TextView mUserGenderTextView;
-    private TextView mUserLevelTextView;
-    private TextView mUserCityTextView;
+    private TextView mEventKeyTextView;
+    private TextView mEventHolderTextView;
+    private TextView mEventTimeTextView;
+    private TextView mEventLocationTextView;
+    private TextView mEventParticipantTextView;
 
     private String userEmail;
     private String userKey;
+    private String otherKey;
 
     private DatabaseReference mDatabase;
 
-    private String otherKey;
+    private String eventKey;
 
+    private Map<String,String> map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_check_others_information);
+        setContentView(R.layout.activity_event_info);
 
         Intent in = getIntent();
-        otherKey = in.getStringExtra("key");
-        Toast.makeText(this,otherKey,Toast.LENGTH_LONG).show();
+        eventKey = in.getStringExtra("key");
+        Toast.makeText(this,eventKey,Toast.LENGTH_LONG).show();
 
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
@@ -58,36 +60,31 @@ public class checkOthersInformation extends AppCompatActivity {
             Toast.makeText(this, "no user", Toast.LENGTH_LONG).show();
         }
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("Users").child(otherKey);
+        mDatabase = FirebaseDatabase.getInstance().getReference("Events").child(eventKey);
 
-        mUserNameTextView = findViewById(R.id.textViewOtherName);
-        mUserAgeTextView = findViewById(R.id.textViewOtherAge);
-        mUserCityTextView = findViewById(R.id.textViewOtherCity);
-        mUserLevelTextView = findViewById(R.id.textViewUserLevel);
-        mUserGenderTextView = findViewById(R.id.textViewOtherGender);
+        mEventKeyTextView = findViewById(R.id.textViewKey);
+        mEventHolderTextView = findViewById(R.id.textViewHolder);
+        mEventTimeTextView = findViewById(R.id.textViewTime);
+        mEventLocationTextView = findViewById(R.id.textViewLocation);
+        mEventParticipantTextView = findViewById(R.id.textViewParticipant);
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Map<String,String> map =  (Map) dataSnapshot.getValue();
+                map =  (Map) dataSnapshot.getValue();
 //                Log.d("E_Value", "get from data! " + dataSnapshot.getValue());
-                String userName = map.get("name");
-                String userAge = map.get("age");
-                String userCity = map.get("city");
-                String userState = "";
-                String userZip = "";
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-                    userState = map.getOrDefault("state", "");
-                    userZip = map.getOrDefault("zip", "");
-                }
-                String userLevel = map.get("level");
-                String userGender = map.get("gender");
+                String eventKey = map.get("key");
+                String eventHolder = map.get("holder");
+                String eventTime = map.get("time");
+                String eventLocation = map.get("location");
+                String eventParticipant = map.get("participant");
+                otherKey = eventHolder;
 
-                mUserAgeTextView.setText(userAge);
-                mUserCityTextView.setText(userCity + "," + userState + "," + userZip);
-                mUserNameTextView.setText(userName);
-                mUserLevelTextView.setText(userLevel);
-                mUserGenderTextView.setText(userGender);
+                mEventKeyTextView.setText(eventKey);
+                mEventHolderTextView.setText(eventHolder);
+                mEventTimeTextView.setText(eventTime);
+                mEventLocationTextView.setText(eventLocation);
+                mEventParticipantTextView.setText(eventParticipant);
             }
 
             @Override
@@ -106,10 +103,14 @@ public class checkOthersInformation extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void rate(View view){
-        Intent intent = new Intent(this, RatingActivity.class);
-        intent.putExtra("otherkey", otherKey);
-        intent.putExtra("userKey", userKey);
-        startActivity(intent);
+    public void reserve(View view){
+        String cur = map.get("participant");
+        if(cur.length()==0){
+            mDatabase.child("participant").setValue(userKey);
+            Toast.makeText(this, "reserve success", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(this, "already taken", Toast.LENGTH_SHORT).show();
+        }
     }
 }

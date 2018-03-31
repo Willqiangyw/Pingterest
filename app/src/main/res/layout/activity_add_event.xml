@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yunweiqiang.pingterest.AddEventActivity">
+
+    <Button
+        android:id="@+id/buttonAddEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:onClick="submit"
+        android:text="@string/submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAddEventLocation" />
+
+    <EditText
+        android:id="@+id/editTextAddEventKey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="EventKey"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editTextAddEventTime"
+        app:layout_constraintEnd_toEndOf="@+id/editTextAddEventTime"
+        app:layout_constraintStart_toStartOf="@+id/editTextAddEventTime"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextAddEventTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="EventTime"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editTextAddEventLocation"
+        app:layout_constraintEnd_toEndOf="@+id/editTextAddEventLocation"
+        app:layout_constraintStart_toStartOf="@+id/editTextAddEventLocation"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAddEventKey" />
+
+    <EditText
+        android:id="@+id/editTextAddEventLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="EventLocation"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAddEvent"
+        app:layout_constraintEnd_toEndOf="@+id/buttonAddEvent"
+        app:layout_constraintStart_toStartOf="@+id/buttonAddEvent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAddEventTime" />
+
+</android.support.constraint.ConstraintLayout>

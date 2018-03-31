@@ -38,59 +38,23 @@
         android:ems="10"
         android:hint="Age"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextGenderEdit"
-        app:layout_constraintEnd_toEndOf="@+id/editTextGenderEdit"
-        app:layout_constraintStart_toStartOf="@+id/editTextGenderEdit"
+        app:layout_constraintBottom_toTopOf="@+id/GenderSpinner"
+        app:layout_constraintEnd_toEndOf="@+id/GenderSpinner"
+        app:layout_constraintStart_toStartOf="@+id/GenderSpinner"
         app:layout_constraintTop_toBottomOf="@+id/editTextNameEdit" />
-
-    <EditText
-        android:id="@+id/editTextGenderEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Gender"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextLevelEdit"
-        app:layout_constraintEnd_toEndOf="@+id/editTextLevelEdit"
-        app:layout_constraintStart_toStartOf="@+id/editTextLevelEdit"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAgeEdit" />
-
-    <EditText
-        android:id="@+id/editTextLevelEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Skill Level"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextCityEdit"
-        app:layout_constraintEnd_toEndOf="@+id/editTextCityEdit"
-        app:layout_constraintStart_toStartOf="@+id/editTextCityEdit"
-        app:layout_constraintTop_toBottomOf="@+id/editTextGenderEdit" />
-
-    <EditText
-        android:id="@+id/editTextCityEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="City"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/buttonConfirmEdit"
-        app:layout_constraintEnd_toEndOf="@+id/buttonConfirmEdit"
-        app:layout_constraintStart_toStartOf="@+id/buttonConfirmEdit"
-        app:layout_constraintTop_toBottomOf="@+id/editTextLevelEdit" />
 
     <Button
         android:id="@+id/buttonConfirmEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
         android:onClick="confirm"
         android:text="Confirm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCityEdit" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textViewUserEmailEdit"
@@ -103,5 +67,35 @@
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/GenderSpinner"
+        android:layout_width="215dp"
+        android:layout_height="44dp"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerSkillLevel"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerSkillLevel"
+        app:layout_constraintStart_toStartOf="@+id/spinnerSkillLevel"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAgeEdit" />
+
+    <EditText
+        android:id="@+id/editTextZipCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Zip Code"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/buttonConfirmEdit"
+        app:layout_constraintEnd_toEndOf="@+id/buttonConfirmEdit"
+        app:layout_constraintStart_toStartOf="@+id/buttonConfirmEdit"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerSkillLevel" />
+
+    <Spinner
+        android:id="@+id/spinnerSkillLevel"
+        android:layout_width="215dp"
+        android:layout_height="44dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextZipCode"
+        app:layout_constraintEnd_toEndOf="@+id/editTextZipCode"
+        app:layout_constraintStart_toStartOf="@+id/editTextZipCode"
+        app:layout_constraintTop_toBottomOf="@+id/GenderSpinner" />
 
 </android.support.constraint.ConstraintLayout>

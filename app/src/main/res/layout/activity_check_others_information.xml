@@ -86,14 +86,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="92dp"
         android:layout_marginTop="16dp"
         android:onClick="chat"
         android:text="Chat"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonAddEventCreate"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewUserLevel" />
+
+    <Button
+        android:id="@+id/buttonToRatingPage"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:onClick="rate"
+        android:text="Rate"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonChatWithIt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonChatWithIt"
+        app:layout_constraintTop_toTopOf="@+id/buttonChatWithIt" />
 
 </android.support.constraint.ConstraintLayout>

@@ -19,4 +19,17 @@
     <string name="app_label">value</string>
     <string name="title_activity_view_database">viewDatabase</string>
     <string name="title_activity_equipment_information">EquipmentInformation</string>
+    <string-array name="gender">
+        <item>Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string-array name="skill_level">
+        <item>Skill level</item>
+        <item>Beginner</item>
+        <item>Intermediate</item>
+        <item>Amatuer</item>
+        <item>Professional</item>
+        <item>Expert</item>
+    </string-array>
 </resources>
