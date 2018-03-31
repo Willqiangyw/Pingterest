@@ -44,6 +44,9 @@ public class SearchActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference("Equipments");
 
         equipmentItem = new ArrayList<>();
+//        ArrayAdapter<String> adapterSearch  = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, equipmentItem);
+//        listView.setAdapter(adapterSearch);
+
 //        equipmentItem.add("Ball");
 //        equipmentItem.add("Pad");
 //        equipmentItem.add("Supplements");
@@ -64,6 +67,8 @@ public class SearchActivity extends AppCompatActivity {
                 // ...
                 TextView equipmentKey = v.findViewById(R.id.textViewKeyInfo);
                 equipmentKey.setText(model.getKey());
+                equipmentItem.add(model.getKey());
+                Toast.makeText(SearchActivity.this, "" + equipmentItem , Toast.LENGTH_SHORT).show();
             }
         };
 
@@ -81,6 +86,12 @@ public class SearchActivity extends AppCompatActivity {
 //                toast.show();
                 intent.putExtra("key", itemRef.getKey());
                 startActivity(intent);
+
+
+                String text = listView.getItemAtPosition(position).toString();
+                Intent myIntent = new Intent(view.getContext(), EquipmentInfo.class);
+                myIntent.putExtra("key",text);
+                startActivityForResult(myIntent, 0);
             }
         });
 
@@ -91,7 +102,7 @@ public class SearchActivity extends AppCompatActivity {
 //                Intent myIntent = new Intent(view.getContext(), EquipmentInfo.class);
 //                myIntent.putExtra("key",text);
 //                startActivityForResult(myIntent, 0);
-//                Toast.makeText(SearchActivity.this, "" + text, Toast.LENGTH_SHORT).show();
+//              //  Toast.makeText(SearchActivity.this, "" + text, Toast.LENGTH_SHORT).show();
 //            }
 //        });
     }
