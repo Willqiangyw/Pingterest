@@ -66,7 +66,10 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".RatingActivity" />
         <activity android:name=".EventInfoActivity" />
-        <activity android:name=".AddEventActivity"></activity>
+        <activity android:name=".AddEventActivity">
+            <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD2OkU35gYP_StHnpAuHk_P_eqaboyKlzc"/></activity>
     </application>
 
 </manifest>

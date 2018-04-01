@@ -55,4 +55,19 @@
         app:layout_constraintStart_toStartOf="@+id/buttonAddEvent"
         app:layout_constraintTop_toBottomOf="@+id/editTextAddEventTime" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="showTimePickerDialog"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/editTextAddEventTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAddEventKey" />
+
 </android.support.constraint.ConstraintLayout>
