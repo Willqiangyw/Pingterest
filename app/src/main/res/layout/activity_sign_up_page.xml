@@ -95,4 +95,5 @@
         app:layout_constraintHorizontal_bias="0.693"
         app:layout_constraintStart_toStartOf="@+id/textViewPasswordSignUpCheck"
         app:layout_constraintTop_toBottomOf="@+id/textViewPasswordSignUpCheck" />
+
 </android.support.constraint.ConstraintLayout>
