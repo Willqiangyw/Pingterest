@@ -59,6 +59,7 @@
         android:layout_height="22dp"
         android:layout_marginStart="8dp"
         android:background="@android:drawable/screen_background_dark_transparent"
+        android:onClick="signUp"
         android:text="Sign up"
         android:textColor="@android:color/background_light"
         android:textSize="14sp"
