@@ -66,13 +66,18 @@
         <activity
             android:name=".EquipmentInformation"
             android:label="@string/title_activity_equipment_information"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".RatingActivity" />
         <activity android:name=".EventInfoActivity" />
         <activity android:name=".AddEventActivity">
             <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD2OkU35gYP_StHnpAuHk_P_eqaboyKlzc"/></activity>
+                android:name="com.google.android.geo.API_KEY"
+                android:value="AIzaSyD2OkU35gYP_StHnpAuHk_P_eqaboyKlzc" />
+        </activity>
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>

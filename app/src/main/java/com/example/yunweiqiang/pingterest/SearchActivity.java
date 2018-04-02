@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -67,7 +68,16 @@ public class SearchActivity extends AppCompatActivity {
                 // ...
                 TextView equipmentKey = v.findViewById(R.id.textViewKeyInfo);
                 equipmentKey.setText(model.getKey());
-                equipmentItem.add(model.getKey());
+                TextView equipmentSeller = v.findViewById(R.id.textViewSeller);
+                equipmentSeller.setText(model.getSellerInfo());
+                TextView equipmentBrand = v.findViewById(R.id.textViewBrand);
+                equipmentBrand.setText(model.getBrand());
+                TextView equipmentPrice = v.findViewById(R.id.textViewPrice);
+                equipmentPrice.setText(model.getItemPrice());
+                ImageView image = v.findViewById(R.id.imageView);
+//                image.setImageURI();
+                if(!equipmentItem.contains(model.getKey()))
+                    equipmentItem.add(model.getKey());
                 Toast.makeText(SearchActivity.this, "" + equipmentItem , Toast.LENGTH_SHORT).show();
             }
         };
@@ -88,10 +98,10 @@ public class SearchActivity extends AppCompatActivity {
                 startActivity(intent);
 
 
-                String text = listView.getItemAtPosition(position).toString();
-                Intent myIntent = new Intent(view.getContext(), EquipmentInfo.class);
-                myIntent.putExtra("key",text);
-                startActivityForResult(myIntent, 0);
+//                String text = listView.getItemAtPosition(position).toString();
+//                Intent myIntent = new Intent(view.getContext(), EquipmentInfo.class);
+//                myIntent.putExtra("key",text);
+//                startActivityForResult(myIntent, 0);
             }
         });
 

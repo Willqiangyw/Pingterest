@@ -7,7 +7,7 @@
     tools:context="com.example.yunweiqiang.pingterest.EditMeInformation">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewUserEmailHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
@@ -29,7 +29,7 @@
         app:layout_constraintBottom_toTopOf="@+id/editTextAgeEdit"
         app:layout_constraintEnd_toEndOf="@+id/editTextAgeEdit"
         app:layout_constraintStart_toStartOf="@+id/editTextAgeEdit"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUserEmailHeader" />
 
     <EditText
         android:id="@+id/editTextAgeEdit"
@@ -64,8 +64,8 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:text="hey"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/textViewUserEmailHeader"
+        app:layout_constraintStart_toStartOf="@+id/textViewUserEmailHeader"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
