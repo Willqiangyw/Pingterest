@@ -71,7 +71,7 @@ public class SearchActivity extends AppCompatActivity {
                 TextView equipmentSeller = v.findViewById(R.id.textViewSeller);
                 equipmentSeller.setText(model.getSellerInfo());
                 TextView equipmentBrand = v.findViewById(R.id.textViewBrand);
-                equipmentBrand.setText(model.getBrand());
+                equipmentBrand.setText(model.getLocation());
                 TextView equipmentPrice = v.findViewById(R.id.textViewPrice);
                 equipmentPrice.setText(model.getItemPrice());
                 ImageView image = v.findViewById(R.id.imageView);

@@ -9,6 +9,8 @@ public class EquipmentInformation {
     private String mItemType;
     private String mKey;
     private String mSellerInfo;
+    private String mLocation;
+
 
 
     public String getBrand(){
@@ -20,6 +22,7 @@ public class EquipmentInformation {
     public String getItemType(){return mItemType;}
     public String getKey(){return mKey;}
     public String getSellerInfo(){return mSellerInfo;}
+    public String getLocation(){return mLocation;}
 
 
     public void setBrand(String c){ mBrand = c; }
@@ -29,5 +32,6 @@ public class EquipmentInformation {
     public void setItemType(String c){mItemType = c;}
     public void setKey(String c){mKey = c;}
     public void setSellerInfo(String c){mSellerInfo = c;}
+    public void setLocation(String c){mLocation = c;}
 
 }

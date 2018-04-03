@@ -55,6 +55,7 @@ public class LOGINPAGE extends AppCompatActivity {
                                 Toast.makeText(LOGINPAGE.this, "Welcome back! " + userEmail, Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(LOGINPAGE.this, FirstPage.class);
                                 startActivity(intent);
+                                finish();
                             }
 
                             else{
@@ -69,5 +70,6 @@ public class LOGINPAGE extends AppCompatActivity {
     public void signUp(View view){
         Intent intent = new Intent (this, SignUpPage.class);
         startActivity(intent);
+        finish();
     }
 }

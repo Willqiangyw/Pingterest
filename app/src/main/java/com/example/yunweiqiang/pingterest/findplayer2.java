@@ -1,14 +1,14 @@
 package com.example.yunweiqiang.pingterest;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseListOptions;
@@ -17,8 +17,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-
-import java.util.List;
 
 public class findplayer2 extends AppCompatActivity {
 
@@ -42,6 +40,18 @@ public class findplayer2 extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Users");
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarCoach);
+//        toolbar.setTitle("Coaches");
+//        toolbar.setTitleTextColor(Color.WHITE);
+        toolbar.setNavigationIcon(R.drawable.returnbutton);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         mListView = (ListView) findViewById(R.id.userListView);
 
         user = mAuth.getCurrentUser();
@@ -61,10 +71,12 @@ public class findplayer2 extends AppCompatActivity {
         adapter = new FirebaseListAdapter<UserInfomation>(options) {
             @Override
             protected void populateView(View v, UserInfomation model, int position) {
-                // Bind the Chat to the view
-                // ...
                 TextView name = v.findViewById(R.id.textViewUserInfo);
                 name.setText(model.getName());
+                TextView rate = v.findViewById(R.id.textViewSingleUserRate);
+                rate.setText("Rate: " + model.getLevel());
+                TextView location = v.findViewById(R.id.textViewSingleUserLocation);
+                location.setText(model.getCity()+","+model.getState());
             }
         };
 
@@ -104,4 +116,5 @@ public class findplayer2 extends AppCompatActivity {
         Intent intent = new Intent(findplayer2.this, ChatActivity.class);
         startActivity(intent);
     }
+
 }

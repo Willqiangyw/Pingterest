@@ -1,19 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="20dp"
+    android:background="@color/colorAccent"
     android:orientation="horizontal">
 
     <TextView
         android:id="@+id/textViewUserInfo"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="2dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
+        android:fontFamily="sans-serif"
         android:padding="2dp"
-        android:text="TextView"
-        android:textSize="24sp" />
+        android:text="Yunwei Qiang"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/textViewSignleUserLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Professional"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewSingleUserLocation"
+        app:layout_constraintStart_toStartOf="@+id/textViewUserInfo"
+        app:layout_constraintTop_toTopOf="@+id/textViewSingleUserLocation" />
+
+    <TextView
+        android:id="@+id/textViewSingleUserDesc"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Professional and patient. Already taught 20 people in Great Atlanta Area..."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSingleUserLocation" />
+
+    <TextView
+        android:id="@+id/textViewSingleUserLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Atlanta, Georgia"
+        android:textAllCaps="false"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSingleUserRate" />
+
+    <TextView
+        android:id="@+id/textViewSingleUserRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rate: 4.8"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewUserInfo"
+        app:layout_constraintEnd_toEndOf="@+id/textViewSingleUserLocation"
+        app:layout_constraintTop_toTopOf="@+id/textViewUserInfo" />
+
+</android.support.constraint.ConstraintLayout>

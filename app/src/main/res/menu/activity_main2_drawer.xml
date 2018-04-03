@@ -22,7 +22,7 @@
             android:title="My Information" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Settings">
         <menu>
             <item
                 android:id="@+id/nav_edit_info"

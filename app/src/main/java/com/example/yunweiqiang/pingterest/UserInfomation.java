@@ -11,6 +11,7 @@ public class UserInfomation {
     private String mLevel;
     private String mAge;
     private String mCity;
+    private String mState;
     private String mKey;
 
 
@@ -27,12 +28,13 @@ public class UserInfomation {
 //        mCity = c;
     }
 
-    public UserInfomation(String n, String g, String l, String a, String c, String k){
+    public UserInfomation(String n, String g, String l, String a, String c, String s, String k){
         mName = n;
         mGender = g;
         mLevel = l;
         mAge = a;
         mCity = c;
+        mState = s;
         mKey = k;
     }
 
@@ -73,6 +75,14 @@ public class UserInfomation {
 
     public void setCity(String c){
         mCity = c;
+    }
+
+    public String getState(){
+        return mState;
+    }
+
+    public void setState(String c){
+        mState = c;
     }
 
     public String getKey(){
