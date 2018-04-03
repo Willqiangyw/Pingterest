@@ -14,10 +14,12 @@
         android:layout_marginStart="16dp"
         android:layout_weight="1"
         android:padding="2dp"
+        android:alpha="0.3"
         android:text="12 Dec, 2017"
+        android:textColor="@color/black"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewSingleLocation"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintStart_toEndOf="@+id/imageViewEvent"
         app:layout_constraintTop_toTopOf="@+id/textViewSingleLocation" />
 
     <TextView
@@ -27,13 +29,15 @@
         android:layout_marginBottom="5dp"
         android:layout_marginStart="32dp"
         android:layout_weight="1"
+        android:alpha="0.3"
         android:text="Atlanta, Georgia"
+        android:textColor="@color/black"
         android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewEvent"
         app:layout_constraintStart_toEndOf="@+id/textViewSingleTime" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageViewEvent"
         android:layout_width="114dp"
         android:layout_height="101dp"
         android:layout_marginBottom="8dp"
@@ -42,7 +46,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/test3" />
+        app:srcCompat="@drawable/singleevent" />
 
     <TextView
         android:id="@+id/textViewSingleEventHolder"
@@ -51,8 +55,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="2dp"
         android:text="Yunwei Qiang"
+        android:textColor="@color/singleItemTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+        app:layout_constraintTop_toTopOf="@+id/imageViewEvent" />
 
     <TextView
         android:id="@+id/textViewSingleEventDescription"
@@ -62,6 +67,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="6dp"
         android:text="A good social event for Pingpong lovers. Gather at 4th floor CRC today!"
+        android:textColor="@color/singleItemDescription"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/textViewSingleLocation"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="GT Pingpong"
-        android:textColor="#474E56"
+        android:textColor="@color/singleItemTitle"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/textViewSingleEventHolder"
         app:layout_constraintStart_toStartOf="@+id/textViewSingleEventDescription"

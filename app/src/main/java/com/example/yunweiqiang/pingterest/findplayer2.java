@@ -50,8 +50,8 @@ public class findplayer2 extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setDisplayShowTitleEnabled(false);
         mListView = (ListView) findViewById(R.id.userListView);
 
         user = mAuth.getCurrentUser();

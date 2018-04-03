@@ -3,6 +3,7 @@ package com.example.yunweiqiang.pingterest;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -38,6 +39,17 @@ public class FindPlyer extends AppCompatActivity {
         setContentView(R.layout.activity_find_plyer);
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Events");
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarEvent);
+//        toolbar.setTitle("Coaches");
+//        toolbar.setTitleTextColor(Color.WHITE);
+        toolbar.setNavigationIcon(R.drawable.returnbutton);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         Query query = mDatabase.orderByKey()
                 .limitToLast(50);

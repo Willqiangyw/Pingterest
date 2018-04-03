@@ -185,6 +185,7 @@ public class ChatActivity extends AppCompatActivity {
             mUserTextView.setText(user);
             TextView mTimeTextView = (TextView) mView.findViewById(R.id.timeTextView);
             mTimeTextView.setText(time);
+//            if(user.equals(userKey))
 
         }
     }

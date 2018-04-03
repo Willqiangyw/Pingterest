@@ -14,7 +14,7 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewMyAvatar"
         android:layout_width="66dp"
         android:layout_height="66dp"
         android:layout_marginStart="4dp"
@@ -35,7 +35,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/textViewUserEmailHeader"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="@+id/imageViewMyAvatar" />
 
     <TextView
         android:id="@+id/textViewUserEmailHeader"
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="willqiangyw@gmail.com"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintStart_toEndOf="@+id/imageView" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewMyAvatar"
+        app:layout_constraintStart_toEndOf="@+id/imageViewMyAvatar" />
 
 </android.support.constraint.ConstraintLayout>

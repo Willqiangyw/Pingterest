@@ -10,15 +10,16 @@
         android:id="@+id/buttonAddEventCreate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@color/buttonBlue"
         android:onClick="addEvent"
         android:text="Add Evemt"
         android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listViewEvent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
         android:id="@+id/listViewEvent"
@@ -34,10 +35,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarCoach" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarEvent" />
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarCoach"
+        android:id="@+id/toolbarEvent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
@@ -48,7 +49,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textViewToolbarCoach"
+            android:id="@+id/textViewToolbarEvent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

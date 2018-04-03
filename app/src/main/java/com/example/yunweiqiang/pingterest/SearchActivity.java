@@ -1,7 +1,5 @@
 package com.example.yunweiqiang.pingterest;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -26,7 +23,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class SearchActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
@@ -68,13 +64,9 @@ public class SearchActivity extends AppCompatActivity {
                 // ...
                 TextView equipmentKey = v.findViewById(R.id.textViewKeyInfo);
                 equipmentKey.setText(model.getKey());
-                TextView equipmentSeller = v.findViewById(R.id.textViewSeller);
-                equipmentSeller.setText(model.getSellerInfo());
-                TextView equipmentBrand = v.findViewById(R.id.textViewBrand);
-                equipmentBrand.setText(model.getLocation());
                 TextView equipmentPrice = v.findViewById(R.id.textViewPrice);
                 equipmentPrice.setText(model.getItemPrice());
-                ImageView image = v.findViewById(R.id.imageView);
+                ImageView image = v.findViewById(R.id.imageViewEquipment);
 //                image.setImageURI();
                 if(!equipmentItem.contains(model.getKey()))
                     equipmentItem.add(model.getKey());

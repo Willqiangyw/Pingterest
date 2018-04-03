@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/singleChatLayout"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="5dp"
     android:orientation="vertical"
@@ -12,30 +13,42 @@
         android:id="@+id/userNameChatTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="7dp"
         android:layout_weight="1"
         android:text="WillQiang"
         android:textColor="@color/colorPrimaryDark"
-        android:textStyle="italic" />
+        android:textSize="12sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/messagecontentTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
+        android:layout_marginEnd="15dp"
         android:layout_weight="1"
-        android:text="Hello, test message here"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:text="Hello, test message here. We want to test messages that are much longer than a single line. "
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/userNameChatTextView"
+        app:layout_constraintTop_toBottomOf="@+id/userNameChatTextView" />
 
     <TextView
         android:id="@+id/timeTextView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
+        android:layout_marginStart="30dp"
         android:layout_weight="1"
         android:padding="1dp"
         android:text="12:00pm"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/userNameChatTextView"
+        app:layout_constraintStart_toEndOf="@+id/userNameChatTextView"
+        app:layout_constraintTop_toTopOf="@+id/userNameChatTextView" />
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
