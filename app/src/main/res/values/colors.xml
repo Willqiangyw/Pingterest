@@ -5,5 +5,8 @@
     <color name="colorAccent">#aaaaaa</color>
     <color name="gray">#aaaaaa</color>
     <color name="myBlue">#cfeaf0</color>
+    <color name="singleItemTitle">#474E56</color>
+    <color name="singleItemDescription">#9B9B9B</color>
+
     <!--<color name="colorAccent">#634f56</color>-->
 </resources>
