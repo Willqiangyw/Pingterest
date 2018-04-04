@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context="com.example.yunweiqiang.pingterest.Me">
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButtonMe"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="48dp"
+        android:clickable="true"
+        android:onClick="edit"
+        android:scaleType="center"
+        app:backgroundTint="@color/floatButton"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+        app:srcCompat="@drawable/ic_pencil" />
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbarMe"
         android:layout_width="match_parent"
@@ -85,6 +99,7 @@
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@+id/textViewMyGenderAndAge"
             app:layout_constraintTop_toBottomOf="@+id/textViewMyGenderAndAge" />
+
     </android.support.constraint.ConstraintLayout>
 
 

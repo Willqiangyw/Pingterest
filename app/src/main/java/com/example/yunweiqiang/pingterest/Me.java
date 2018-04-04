@@ -55,6 +55,7 @@ public class Me extends AppCompatActivity {
         });
 
 
+
         mAuth = FirebaseAuth.getInstance();
 
         mMyNameTextView = (TextView) findViewById(R.id.textViewMyName);
