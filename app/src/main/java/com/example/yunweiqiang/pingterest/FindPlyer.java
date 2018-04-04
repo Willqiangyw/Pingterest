@@ -41,8 +41,6 @@ public class FindPlyer extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference("Events");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarEvent);
-//        toolbar.setTitle("Coaches");
-//        toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setNavigationIcon(R.drawable.returnbutton);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

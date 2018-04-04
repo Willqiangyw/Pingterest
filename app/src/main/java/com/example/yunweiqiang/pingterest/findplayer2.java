@@ -18,6 +18,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class findplayer2 extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
@@ -94,6 +97,7 @@ public class findplayer2 extends AppCompatActivity {
 
 //                Toast toast = Toast.makeText(findplayer2.this, itemRef.getKey(), Toast.LENGTH_SHORT);
 //                toast.show();
+
                 intent.putExtra("key", itemRef.getKey());
                 startActivity(intent);
             }

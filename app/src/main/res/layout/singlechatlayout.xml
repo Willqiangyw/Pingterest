@@ -1,54 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/singleChatLayout"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/singleChatLayout1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="5dp"
-    android:orientation="vertical"
-    android:paddingBottom="5dp">
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/userNameChatTextView"
+    <LinearLayout
+        android:id="@+id/singleChatLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/userNameChatTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:alpha="0.7"
+            android:gravity="right"
+            android:text="WillQiang"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/timeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_toEndOf="@+id/userNameChatTextView"
+            android:layout_toRightOf="@+id/userNameChatTextView"
+            android:layout_weight="1"
+            android:alpha="0.7"
+            android:padding="1dp"
+            android:text="12:00pm"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/singleChatLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="7dp"
-        android:layout_weight="1"
-        android:text="WillQiang"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="12sp"
-        android:textStyle="italic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:maxWidth="10dp"
+        android:orientation="vertical"
+        app:layout_constraintWidth_max="10dp">
 
-    <TextView
-        android:id="@+id/messagecontentTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
-        android:layout_weight="1"
-        android:text="Hello, test message here. We want to test messages that are much longer than a single line. "
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/userNameChatTextView"
-        app:layout_constraintTop_toBottomOf="@+id/userNameChatTextView" />
 
-    <TextView
-        android:id="@+id/timeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_weight="1"
-        android:padding="1dp"
-        android:text="12:00pm"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/userNameChatTextView"
-        app:layout_constraintStart_toEndOf="@+id/userNameChatTextView"
-        app:layout_constraintTop_toTopOf="@+id/userNameChatTextView" />
+        <TextView
+            android:id="@+id/messagecontentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/userNameChatTextView"
+            android:layout_alignStart="@+id/userNameChatTextView"
+            android:layout_below="@+id/timeTextView"
+            android:layout_weight="1"
+            android:text="Hello, test message here"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@+id/userNameChatTextView" />
 
-</android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+</LinearLayout>

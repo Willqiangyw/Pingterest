@@ -16,7 +16,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 public class checkOthersInformation extends AppCompatActivity {
@@ -36,7 +38,9 @@ public class checkOthersInformation extends AppCompatActivity {
     private DatabaseReference mDatabase;
 
     private String otherKey;
+    //information for opponent
 
+    private String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +75,7 @@ public class checkOthersInformation extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Map<String,String> map =  (Map) dataSnapshot.getValue();
 //                Log.d("E_Value", "get from data! " + dataSnapshot.getValue());
-                String userName = map.get("name");
+                userName = map.get("name");
                 String userAge = map.get("age");
                 String userCity = map.get("city");
                 String userState = "";
@@ -103,6 +107,7 @@ public class checkOthersInformation extends AppCompatActivity {
         Arrays.sort(temp);
         String pass = temp[0] +"+"+ temp[1];
         intent.putExtra("key", pass);
+        intent.putExtra("otherkey",userName);
         startActivity(intent);
     }
 
