@@ -14,10 +14,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Map;
 
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -25,10 +33,15 @@ public class Main2Activity extends AppCompatActivity
     private FirebaseAuth mAuth;
     private FirebaseUser user;
     private String userEmail;
+    private String userKey;
+    private String userName;
 
     Button buttonFindCoach;
     Button buttonFindPlayer;
     Button buttonEquipment;
+
+    TextView myName;
+    TextView myEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +50,19 @@ public class Main2Activity extends AppCompatActivity
 
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
+        assert user != null;
+        userEmail = user.getEmail();
+        assert userEmail != null;
+        userKey = userEmail.substring(0,userEmail.indexOf('@'));
+
+        NavigationView navView = (NavigationView) findViewById(R.id.nav_view);
+        View v = navView.getHeaderView(0);
+        myName = (TextView) v.findViewById(R.id.textViewUserNameHeader);
+        myEmail = (TextView) v.findViewById(R.id.textViewUserEmailHeader);
+//        Toast.makeText(this,myName.getText(),Toast.LENGTH_LONG).show();
+        setTexts(userKey);
+//        myName.setText(getName(userKey));
+//        myEmail.setText(userEmail);
 
         buttonFindCoach = findViewById(R.id.buttonFindCouchMain);
         buttonFindCoach.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +91,8 @@ public class Main2Activity extends AppCompatActivity
             }
         });
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.maintoolbar);
+        toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -162,5 +189,22 @@ public class Main2Activity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void setTexts(String key){
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users").child(key);
+        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Map<String,String> map =  (Map) dataSnapshot.getValue();
+                myName.setText(map.get("name"));
+                myEmail.setText(userEmail);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                //do nothing
+            }
+        });
     }
 }

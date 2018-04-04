@@ -3,6 +3,7 @@ package com.example.yunweiqiang.pingterest;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -16,6 +17,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.Map;
 
 public class Me extends AppCompatActivity {
@@ -23,12 +26,12 @@ public class Me extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser user;
 
-    private TextView mUserEmailTextView;
-    private TextView mUserNameTextView;
-    private TextView mUserAgeTextView;
-    private TextView mUserGenderTextView;
-    private TextView mUserLevelTextView;
-    private TextView mUserCityTextView;
+    private TextView mMyNameTextView;
+    private TextView mMyGenderAndAgeTextView;
+    private TextView mMyScoreTextView;
+    private TextView mMyLevelTextView;
+    private TextView mMyAddrTextView;
+    private TextView mMyDescTextView;
 
     private String userEmail;
     private String userKey;
@@ -41,32 +44,36 @@ public class Me extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_me);
 
-        mAuth = FirebaseAuth.getInstance();
-//        mDatabase = FirebaseDatabase.getInstance().getReference("message");
-//        mDatabase.setValue("Hello, World!");
 
-        mUserEmailTextView = findViewById(R.id.textViewUserEmail);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarMe);
+        toolbar.setNavigationIcon(R.drawable.returnbutton);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+
+        mAuth = FirebaseAuth.getInstance();
+
+        mMyNameTextView = (TextView) findViewById(R.id.textViewMyName);
+        mMyGenderAndAgeTextView = (TextView) findViewById(R.id.textViewMyGenderAndAge);
+        mMyScoreTextView = (TextView) findViewById(R.id.textViewMyScore);
+        mMyLevelTextView = (TextView) findViewById(R.id.textViewMyLevel2);
+        mMyAddrTextView = (TextView) findViewById(R.id.textViewMyAddr);
+        mMyDescTextView = (TextView) findViewById(R.id.textViewMyDesc2);
+
         user = mAuth.getCurrentUser();
 
         if(user!=null) {
             userEmail = user.getEmail();
-            mUserEmailTextView.setText("Hey, "+userEmail);
         }
         else{
             Toast.makeText(this, "no user", Toast.LENGTH_LONG).show();
         }
-
         userKey = userEmail.substring(0,userEmail.indexOf('@'));
         mDatabase = FirebaseDatabase.getInstance().getReference("Users").child(userKey);
-
-        mUserNameTextView = findViewById(R.id.textViewUserName);
-        mUserAgeTextView = findViewById(R.id.textViewUserAge);
-        mUserCityTextView = findViewById(R.id.textViewUserCity);
-        mUserLevelTextView = findViewById(R.id.textViewUserLevel);
-        mUserGenderTextView = findViewById(R.id.textViewUserGender);
-//        mUserNameTextView.setText(userKey);
-        Log.d("E_VALUE", "The key is " + userKey);
-//        mDatabase.child("Users").child(userKey).getRef("Key");
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -83,12 +90,16 @@ public class Me extends AppCompatActivity {
                 }
                 String userLevel = map.get("level");
                 String userGender = map.get("gender");
+                //add later
+//                String userScore = map.get("rate");
+//                String userDesc = map.get("description");
 
-                mUserAgeTextView.setText(userAge);
-                mUserCityTextView.setText(userCity + "," + userState + "," + userZip);
-                mUserNameTextView.setText(userName);
-                mUserLevelTextView.setText(userLevel);
-                mUserGenderTextView.setText(userGender);
+                mMyGenderAndAgeTextView.setText(userGender + ", " + userAge);
+                mMyAddrTextView.setText(userCity + "," + userState + "," + userZip);
+                mMyNameTextView.setText(userName);
+                mMyLevelTextView.setText(userLevel);
+//                mMyScoreTextView.setText(userScore);
+//                mMyDescTextView.setText(userDesc);
             }
 
             @Override
