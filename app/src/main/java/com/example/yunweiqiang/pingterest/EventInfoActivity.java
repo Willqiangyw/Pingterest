@@ -3,6 +3,7 @@ package com.example.yunweiqiang.pingterest;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -29,6 +30,7 @@ public class EventInfoActivity extends AppCompatActivity {
     private TextView mEventTimeTextView;
     private TextView mEventLocationTextView;
     private TextView mEventParticipantTextView;
+    private TextView mEventDescTextView;
 
     private String userEmail;
     private String userKey;
@@ -49,6 +51,15 @@ public class EventInfoActivity extends AppCompatActivity {
         eventKey = in.getStringExtra("key");
         Toast.makeText(this,eventKey,Toast.LENGTH_LONG).show();
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarEventInfo);
+        toolbar.setNavigationIcon(R.drawable.returnbutton);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
 
@@ -62,11 +73,11 @@ public class EventInfoActivity extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Events").child(eventKey);
 
-        mEventKeyTextView = findViewById(R.id.textViewKey);
-        mEventHolderTextView = findViewById(R.id.textViewHolder);
-        mEventTimeTextView = findViewById(R.id.textViewTime);
-        mEventLocationTextView = findViewById(R.id.textViewLocation);
-        mEventParticipantTextView = findViewById(R.id.textViewParticipant);
+        mEventKeyTextView = findViewById(R.id.textViewEventName);
+        mEventHolderTextView = findViewById(R.id.textViewEventHolder2);
+        mEventTimeTextView = findViewById(R.id.textViewEventTime2);
+        mEventLocationTextView = findViewById(R.id.textViewEventAddr);
+        mEventParticipantTextView = findViewById(R.id.textViewEventParticipant2);
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -78,6 +89,8 @@ public class EventInfoActivity extends AppCompatActivity {
                 String eventTime = map.get("time");
                 String eventLocation = map.get("location");
                 String eventParticipant = map.get("participant");
+                //add later
+//                String eventDesc = map.get("description");
                 otherKey = eventHolder;
 
                 mEventKeyTextView.setText(eventKey);
@@ -85,6 +98,7 @@ public class EventInfoActivity extends AppCompatActivity {
                 mEventTimeTextView.setText(eventTime);
                 mEventLocationTextView.setText(eventLocation);
                 mEventParticipantTextView.setText(eventParticipant);
+//                mEventDescTextView.setText(eventDesc);
             }
 
             @Override

@@ -105,7 +105,7 @@
     <TextView
         android:id="@+id/textViewMyLevel"
         android:layout_width="wrap_content"
-        android:layout_height="25dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Level"
@@ -117,7 +117,7 @@
     <TextView
         android:id="@+id/textViewMyLevel2"
         android:layout_width="wrap_content"
-        android:layout_height="25dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:text="Professional"
         android:textColor="@color/black"
@@ -129,13 +129,12 @@
     <TextView
         android:id="@+id/textViewMyAddr"
         android:layout_width="wrap_content"
-        android:layout_height="27dp"
+        android:layout_height="wrap_content"
         android:text="Atlanta, Georgia, 30339"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewMyAddr2"
-        app:layout_constraintStart_toStartOf="@+id/textViewMyLevel2"
-        app:layout_constraintTop_toTopOf="@+id/textViewMyAddr2" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewMyAddr2"
+        app:layout_constraintStart_toStartOf="@+id/textViewMyLevel2" />
 
     <TextView
         android:id="@+id/textViewMyAddr2"

@@ -99,7 +99,7 @@
     <TextView
         android:id="@+id/textViewOtherLevel"
         android:layout_width="wrap_content"
-        android:layout_height="25dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Level"
@@ -111,7 +111,7 @@
     <TextView
         android:id="@+id/textViewOtherLevel2"
         android:layout_width="wrap_content"
-        android:layout_height="25dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:text="Professional"
         android:textColor="@color/black"
@@ -123,13 +123,12 @@
     <TextView
         android:id="@+id/textViewOtherAddr"
         android:layout_width="wrap_content"
-        android:layout_height="27dp"
+        android:layout_height="wrap_content"
         android:text="Atlanta, Georgia, 30339"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewOtherAddr2"
-        app:layout_constraintStart_toStartOf="@+id/textViewOtherLevel2"
-        app:layout_constraintTop_toTopOf="@+id/textViewOtherAddr2" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewOtherAddr2"
+        app:layout_constraintStart_toStartOf="@+id/textViewOtherLevel2" />
 
     <TextView
         android:id="@+id/textViewOtherAddr2"
