@@ -12,7 +12,6 @@
         android:layout_height="55dp"
         android:layout_marginEnd="48dp"
         android:clickable="true"
-        android:onClick="edit"
         android:scaleType="center"
         app:backgroundTint="@color/floatButton"
         app:layout_constraintBottom_toBottomOf="@+id/constraintLayout3"
