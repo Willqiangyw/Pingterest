@@ -73,7 +73,7 @@
             android:layout_marginTop="8dp"
             android:text="Yunwei Qiang"
             android:textColor="@color/white"
-            android:textSize="24sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageViewEdit"
             app:layout_constraintTop_toTopOf="@+id/imageViewEdit" />
@@ -82,10 +82,10 @@
             android:id="@+id/textViewMyGenderAndAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:text="Male, 24"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="21sp"
             app:layout_constraintStart_toStartOf="@+id/textViewMyName"
             app:layout_constraintTop_toBottomOf="@+id/textViewMyName" />
 
@@ -96,7 +96,7 @@
             android:layout_marginTop="4dp"
             android:text="1600"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="21sp"
             app:layout_constraintStart_toStartOf="@+id/textViewMyGenderAndAge"
             app:layout_constraintTop_toBottomOf="@+id/textViewMyGenderAndAge" />
 
@@ -111,7 +111,7 @@
         android:layout_marginTop="16dp"
         android:text="Level"
         android:textColor="@color/singleItemDescription"
-        android:textSize="18sp"
+        android:textSize="21sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 
@@ -122,7 +122,7 @@
         android:layout_marginStart="24dp"
         android:text="Professional"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewMyLevel"
         app:layout_constraintStart_toEndOf="@+id/textViewMyLevel"
         app:layout_constraintTop_toTopOf="@+id/textViewMyLevel" />
@@ -133,7 +133,7 @@
         android:layout_height="wrap_content"
         android:text="Atlanta, Georgia, 30339"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="21sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textViewMyAddr2"
         app:layout_constraintStart_toStartOf="@+id/textViewMyLevel2" />
 
@@ -144,7 +144,7 @@
         android:layout_marginTop="16dp"
         android:text="Addr"
         android:textColor="@color/singleItemDescription"
-        android:textSize="18sp"
+        android:textSize="21sp"
         app:layout_constraintStart_toStartOf="@+id/textViewMyLevel"
         app:layout_constraintTop_toBottomOf="@+id/textViewMyLevel" />
 
@@ -165,7 +165,7 @@
         android:layout_marginTop="16dp"
         android:text="Description:"
         android:textColor="@color/singleItemDescription"
-        android:textSize="18sp"
+        android:textSize="21sp"
         app:layout_constraintStart_toStartOf="@+id/textViewMyAddr2"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
@@ -173,9 +173,10 @@
         android:id="@+id/textViewMyDesc2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="I love play Pingpong and I’ve been playing for more than 10 years. You can’t find a more  professional and patient coach than I am…"
         android:textColor="@color/black"
+        android:textSize="21sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textViewMyDesc"
         app:layout_constraintTop_toBottomOf="@+id/textViewMyDesc" />

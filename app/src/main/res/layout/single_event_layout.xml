@@ -56,6 +56,7 @@
         android:layout_marginTop="2dp"
         android:text="Yunwei Qiang"
         android:textColor="@color/singleItemTitle"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageViewEvent" />
 
@@ -65,7 +66,7 @@
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="8dp"
         android:text="A good social event for Pingpong lovers. Gather at 4th floor CRC today!"
         android:textColor="@color/singleItemDescription"
         android:textSize="12sp"
@@ -78,11 +79,13 @@
         android:id="@+id/textViewSingleEventName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
         android:text="GT Pingpong"
         android:textColor="@color/singleItemTitle"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/textViewSingleEventHolder"
         app:layout_constraintStart_toStartOf="@+id/textViewSingleEventDescription"
-        app:layout_constraintTop_toTopOf="@+id/textViewSingleEventHolder" />
+        app:layout_constraintTop_toTopOf="@+id/imageViewEvent" />
 
 </android.support.constraint.ConstraintLayout>

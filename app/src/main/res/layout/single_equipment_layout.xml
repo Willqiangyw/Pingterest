@@ -17,7 +17,7 @@
         android:padding="2dp"
         android:text="Tiffany Ping Pong Paddle"
         android:textColor="@color/singleItemTitle"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageViewEquipment"
         app:layout_constraintTop_toTopOf="@+id/imageViewEquipment" />

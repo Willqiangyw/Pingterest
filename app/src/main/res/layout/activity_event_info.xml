@@ -65,7 +65,7 @@
             android:layout_marginTop="8dp"
             android:text="GT PingPong"
             android:textColor="@color/white"
-            android:textSize="24sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageViewEvent"
             app:layout_constraintTop_toTopOf="@+id/imageViewEvent" />
@@ -74,10 +74,10 @@
             android:id="@+id/textViewEventHolder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:text="Holder:"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="21sp"
             app:layout_constraintStart_toStartOf="@+id/textViewEventName"
             app:layout_constraintTop_toBottomOf="@+id/textViewEventName" />
 
@@ -88,7 +88,7 @@
             android:layout_marginTop="4dp"
             android:text="Will Qiang"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="21sp"
             app:layout_constraintStart_toStartOf="@+id/textViewEventHolder"
             app:layout_constraintTop_toBottomOf="@+id/textViewEventHolder" />
 
@@ -114,7 +114,7 @@
         android:layout_marginStart="24dp"
         android:text="04/01/2018 2:00PM"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewEventTime"
         app:layout_constraintStart_toEndOf="@+id/textViewEventTime"
         app:layout_constraintTop_toTopOf="@+id/textViewEventTime" />
@@ -125,7 +125,7 @@
         android:layout_height="wrap_content"
         android:text="Gatech Main Campus \n Altanta, GA, 30332"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="21sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textViewEventAddr2"
         app:layout_constraintStart_toStartOf="@+id/textViewEventTime2" />
 
@@ -136,7 +136,7 @@
         android:layout_marginTop="16dp"
         android:text="Addr"
         android:textColor="@color/singleItemDescription"
-        android:textSize="18sp"
+        android:textSize="21sp"
         app:layout_constraintStart_toStartOf="@+id/textViewEventTime"
         app:layout_constraintTop_toBottomOf="@+id/textViewEventTime" />
 
@@ -144,7 +144,7 @@
         android:id="@+id/imageViewEvent4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textViewEventAddr"
         app:layout_constraintTop_toBottomOf="@+id/textViewEventAddr"
@@ -154,10 +154,10 @@
         android:id="@+id/textViewEventDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Description:"
         android:textColor="@color/singleItemDescription"
-        android:textSize="18sp"
+        android:textSize="21sp"
         app:layout_constraintStart_toStartOf="@+id/textViewEventAddr2"
         app:layout_constraintTop_toBottomOf="@+id/imageViewEvent4" />
 
@@ -165,9 +165,10 @@
         android:id="@+id/textViewEventDesc2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="I love play Pingpong and I’ve been playing for more than 10 years. You can’t find a more  professional and patient coach than I am…"
         android:textColor="@color/black"
+        android:textSize="21sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textViewEventDesc"
         app:layout_constraintTop_toBottomOf="@+id/textViewEventDesc" />
@@ -176,7 +177,7 @@
         android:id="@+id/imageViewEvent5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textViewEventAddr"
@@ -187,10 +188,10 @@
         android:id="@+id/textViewEventParticipant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Participant:"
         android:textColor="@color/singleItemDescription"
-        android:textSize="18sp"
+        android:textSize="21sp"
         app:layout_constraintStart_toStartOf="@+id/textViewEventAddr2"
         app:layout_constraintTop_toBottomOf="@+id/imageViewEvent5" />
 
@@ -198,10 +199,12 @@
         android:id="@+id/textViewEventParticipant2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Someone Else"
         android:textColor="@color/black"
+        android:textSize="21sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="@+id/textViewEventParticipant"
         app:layout_constraintTop_toBottomOf="@+id/textViewEventParticipant" />
 
@@ -209,7 +212,7 @@
         android:id="@+id/imageViewEvent6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textViewEventAddr"

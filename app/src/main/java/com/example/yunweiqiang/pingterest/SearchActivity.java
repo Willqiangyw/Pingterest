@@ -49,7 +49,8 @@ public class SearchActivity extends AppCompatActivity {
 //        equipmentItem.add("Supplements");
 //        equipmentItem.add("Desk");
 
-        Query query = mDatabase.orderByKey().startAt("Table").endAt("Table"+"\uf8ff")
+        Query query = mDatabase.orderByKey()
+//                .startAt("Table").endAt("Table"+"\uf8ff")
                 .limitToLast(50);
 
         FirebaseListOptions<EquipmentInformation> options = new FirebaseListOptions.Builder<EquipmentInformation>()
@@ -65,7 +66,7 @@ public class SearchActivity extends AppCompatActivity {
                 TextView equipmentKey = v.findViewById(R.id.textViewKeyInfo);
                 equipmentKey.setText(model.getKey());
                 TextView equipmentPrice = v.findViewById(R.id.textViewPrice);
-                equipmentPrice.setText(model.getItemPrice());
+                equipmentPrice.setText(model.getNewPrice());
 //                ImageView image = v.findViewById(R.id.imageViewEquipment);
 //                image.setImageURI();
                 if(!equipmentItem.contains(model.getKey()))

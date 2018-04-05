@@ -52,7 +52,7 @@
             android:layout_marginTop="8dp"
             android:text="Some Seller"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageViewEquipmentUser"
             app:layout_constraintTop_toTopOf="@+id/imageViewEquipmentUser" />
@@ -61,11 +61,11 @@
             android:id="@+id/textViewSellTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:alpha="0.8"
             android:text="21/3/2018"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@+id/textViewSellerName"
             app:layout_constraintTop_toBottomOf="@+id/textViewSellerName" />
 
@@ -77,7 +77,7 @@
             android:alpha="0.8"
             android:text="Atlanta, Georgia"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/textViewSellTime"
             app:layout_constraintStart_toEndOf="@+id/textViewSellTime"
             app:layout_constraintTop_toTopOf="@+id/textViewSellTime" />
@@ -101,7 +101,7 @@
         android:layout_marginTop="16dp"
         android:text="$250"
         android:textColor="@android:color/holo_red_light"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayoutEquipmentInfo" />
@@ -113,7 +113,7 @@
         android:layout_marginStart="16dp"
         android:text="$500"
         android:textColor="@color/usedPrice"
-        android:textSize="15sp"
+        android:textSize="18sp"
         android:textStyle=""
         app:layout_constraintBottom_toBottomOf="@+id/textViewCurPrice"
         app:layout_constraintStart_toEndOf="@+id/textViewCurPrice"
@@ -126,7 +126,7 @@
         android:layout_marginTop="8dp"
         android:text="Tiffany Ping pong paddle"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="21sp"
         app:layout_constraintStart_toStartOf="@+id/textViewCurPrice"
         app:layout_constraintTop_toBottomOf="@+id/textViewCurPrice" />
 
@@ -160,6 +160,7 @@
         android:layout_marginTop="8dp"
         android:text="I love play Pingpong and I’ve been playing for more than 10 years. You can’t find a more  professional and patient coach than I am…"
         android:textColor="@color/black"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textViewEquipmentDesc"
         app:layout_constraintTop_toBottomOf="@+id/textViewEquipmentDesc" />
@@ -170,6 +171,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/buttonBlue"
+        android:onClick="equipmentChat"
         android:text="Chat"
         android:textAllCaps="false"
         android:textColor="@color/colorPrimary"

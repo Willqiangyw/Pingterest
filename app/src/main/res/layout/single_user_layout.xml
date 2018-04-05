@@ -14,9 +14,9 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="2dp"
         android:layout_weight="1"
-        android:padding="2dp"
         android:text="Yunwei Qiang"
         android:textColor="@color/singleItemTitle"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageViewAvatar"
         app:layout_constraintTop_toTopOf="@+id/imageViewAvatar" />
@@ -80,6 +80,7 @@
         android:layout_height="wrap_content"
         android:text="Rate: 4.8"
         android:textColor="@color/singleItemTitle"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/textViewUserInfo"
         app:layout_constraintEnd_toEndOf="@+id/textViewSingleUserLocation"
