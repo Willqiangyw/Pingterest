@@ -38,6 +38,7 @@
         android:layout_height="wrap_content"
         android:background="@color/buttonBlue"
         android:fontFamily="sans-serif"
+        android:onClick="sell"
         android:text="Sell Equipment"
         android:textAllCaps="false"
         android:textColor="@color/colorPrimary"

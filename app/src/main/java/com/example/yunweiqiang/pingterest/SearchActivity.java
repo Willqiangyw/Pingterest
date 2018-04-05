@@ -156,6 +156,11 @@ public class SearchActivity extends AppCompatActivity {
         adapter.stopListening();
     }
 
+    public void sell(View view){
+        Intent intent = new Intent(this, SellEquipmentActivity.class);
+        startActivity(intent);
+    }
+
 }
 
 

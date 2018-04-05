@@ -32,6 +32,7 @@ public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public static String CURRENT_USER_NAME;
+    public static String CURRENT_USER_ADDR;
 
     private FirebaseAuth mAuth;
     private FirebaseUser user;
@@ -204,6 +205,7 @@ public class Main2Activity extends AppCompatActivity
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Map<String,String> map =  (Map) dataSnapshot.getValue();
                 CURRENT_USER_NAME = map.get("name");
+                CURRENT_USER_ADDR = map.get("city")+", "+map.get("state");
                 myName.setText(CURRENT_USER_NAME);
                 myEmail.setText(userEmail);
             }
@@ -213,5 +215,24 @@ public class Main2Activity extends AppCompatActivity
                 //do nothing
             }
         });
+    }
+
+    public String[] getUserInfoOnce(String key){
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users").child(key);
+        final String[] targetInfo = {"",""};
+        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Map<String,String> map =  (Map) dataSnapshot.getValue();
+                targetInfo[0] = map.get("name");
+                targetInfo[1] = map.get("city")+", "+map.get("state");
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                //do nothing
+            }
+        });
+        return targetInfo;
     }
 }

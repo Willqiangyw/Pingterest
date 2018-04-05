@@ -33,7 +33,7 @@
         <item>Expert</item>
     </string-array>
     <string-array name="skill_level_num">
-    <item>Skill level</item>
+        <item>Skill level</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -44,7 +44,7 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-</string-array>
+    </string-array>
     <string name="title_activity_main2">Main2Activity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
