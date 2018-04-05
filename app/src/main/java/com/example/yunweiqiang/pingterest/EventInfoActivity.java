@@ -1,6 +1,7 @@
 package com.example.yunweiqiang.pingterest;
 
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -121,10 +122,12 @@ public class EventInfoActivity extends AppCompatActivity {
         String cur = map.get("participant");
         if(cur.length()==0){
             mDatabase.child("participant").setValue(Main2Activity.CURRENT_USER_NAME);
-            Toast.makeText(this, "reserve success", Toast.LENGTH_SHORT).show();
+            Snackbar.make(view, "Reserve success", Snackbar.LENGTH_SHORT)
+                    .setAction("Action", null).show();
         }
         else{
-            Toast.makeText(this, "already taken", Toast.LENGTH_SHORT).show();
+            Snackbar.make(view, "Reserve fail, place filled", Snackbar.LENGTH_SHORT)
+                    .setAction("Action", null).show();
         }
     }
 }

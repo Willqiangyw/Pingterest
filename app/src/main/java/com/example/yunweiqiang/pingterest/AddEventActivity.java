@@ -85,6 +85,10 @@ public class AddEventActivity extends AppCompatActivity
             tempDatabase.child("time").setValue(eventTime);
             tempDatabase.child("location").setValue(eventAddr);
             tempDatabase.child("participant").setValue("");
+            tempDatabase.child("longtitude").setValue("56");
+            tempDatabase.child("latitude").setValue("78");
+            tempDatabase.child("timeHour").setValue(""+hour);
+            tempDatabase.child("timeMinute").setValue(""+minute);
             Toast.makeText(this,"post success", Toast.LENGTH_SHORT).show();
             finish();
         }
