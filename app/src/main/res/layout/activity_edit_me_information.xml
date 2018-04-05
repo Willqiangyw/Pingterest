@@ -6,96 +6,271 @@
     android:layout_height="match_parent"
     tools:context="com.example.yunweiqiang.pingterest.EditMeInformation">
 
-    <TextView
-        android:id="@+id/textViewUserEmailHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="Please fill in all information"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNameEdit"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextNameEdit"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUserEmailEdit" />
 
-    <EditText
-        android:id="@+id/editTextNameEdit"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarEditMe"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextAgeEdit"
-        app:layout_constraintEnd_toEndOf="@+id/editTextAgeEdit"
-        app:layout_constraintStart_toStartOf="@+id/editTextAgeEdit"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUserEmailHeader" />
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/editTextAgeEdit"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/textViewToolbarEditMe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Edit Information"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp" />
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayoutEditMe"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Age"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/GenderSpinner"
-        app:layout_constraintEnd_toEndOf="@+id/GenderSpinner"
-        app:layout_constraintStart_toStartOf="@+id/GenderSpinner"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNameEdit" />
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarEditMe">
+
+
+        <ImageView
+            android:id="@+id/imageViewEdit"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_marginBottom="18dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/avatar_round" />
+    </android.support.constraint.ConstraintLayout>
+
+
+    <ScrollView
+    android:id="@+id/scrollView2"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_margin="5dp"
+    app:layout_constraintBottom_toTopOf="@+id/buttonConfirmEdit"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="@+id/buttonConfirmEdit"
+    app:layout_constraintTop_toBottomOf="@+id/constraintLayoutEditMe"
+    app:layout_constraintVertical_bias="0.0">
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="71dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/card"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/textViewEditLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:alpha="0.7"
+                android:text="Last Name"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editTextLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Qiang"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="71dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/card"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewEditFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:alpha="0.7"
+                android:text="First Name"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editTextFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Yunwei"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="71dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/card"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewEditAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:alpha="0.7"
+                android:text="Age"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editTextAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:ems="10"
+                android:inputType="number"
+                android:text="24"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="71dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/card"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewEditGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:alpha="0.7"
+                android:text="Gender"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/spinnerGender"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="6dp"
+                android:layout_marginStart="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="71dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/card"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewEditLevel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:alpha="0.7"
+                android:text="Skill Level"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/spinnerLevel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="71dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/card"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewEditZip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:alpha="0.7"
+                android:text="Zip Code"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editTextUserZipCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:ems="10"
+                android:hint="Zip Code"
+                android:inputType="number"
+                android:text="30221" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/card"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewEditDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:alpha="0.7"
+                android:text="Description yourself"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editTextUserDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:text="I love play Pingpong and I’ve been playing for more than 10 years. You can’t find a more  professional and patient coach than I am…" />
+        </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/buttonConfirmEdit"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
+        android:background="@color/buttonBlue"
         android:onClick="confirm"
         android:text="Confirm"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewUserEmailEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="hey"
-        app:layout_constraintEnd_toEndOf="@+id/textViewUserEmailHeader"
-        app:layout_constraintStart_toStartOf="@+id/textViewUserEmailHeader"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Spinner
-        android:id="@+id/GenderSpinner"
-        android:layout_width="215dp"
-        android:layout_height="44dp"
-        app:layout_constraintBottom_toTopOf="@+id/spinnerSkillLevel"
-        app:layout_constraintEnd_toEndOf="@+id/spinnerSkillLevel"
-        app:layout_constraintStart_toStartOf="@+id/spinnerSkillLevel"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAgeEdit" />
-
-    <EditText
-        android:id="@+id/editTextZipCode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Zip Code"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/buttonConfirmEdit"
-        app:layout_constraintEnd_toEndOf="@+id/buttonConfirmEdit"
-        app:layout_constraintStart_toStartOf="@+id/buttonConfirmEdit"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerSkillLevel" />
-
-    <Spinner
-        android:id="@+id/spinnerSkillLevel"
-        android:layout_width="215dp"
-        android:layout_height="44dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextZipCode"
-        app:layout_constraintEnd_toEndOf="@+id/editTextZipCode"
-        app:layout_constraintStart_toStartOf="@+id/editTextZipCode"
-        app:layout_constraintTop_toBottomOf="@+id/GenderSpinner" />
 
 </android.support.constraint.ConstraintLayout>

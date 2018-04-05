@@ -153,10 +153,10 @@ public class Main2Activity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_find_coach) {
-            Intent intent = new Intent(this, FindPlyer.class);
+            Intent intent = new Intent(this, findplayer2.class);
             startActivity(intent);
         } else if (id == R.id.nav_find_player) {
-            Intent intent = new Intent(this, findplayer2.class);
+            Intent intent = new Intent(this, FindPlyer.class);
             startActivity(intent);
         } else if (id == R.id.nav_equipments) {
             Intent intent = new Intent(this, SearchActivity.class);

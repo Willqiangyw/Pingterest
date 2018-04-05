@@ -66,7 +66,7 @@ public class SearchActivity extends AppCompatActivity {
                 equipmentKey.setText(model.getKey());
                 TextView equipmentPrice = v.findViewById(R.id.textViewPrice);
                 equipmentPrice.setText(model.getItemPrice());
-                ImageView image = v.findViewById(R.id.imageViewEquipment);
+//                ImageView image = v.findViewById(R.id.imageViewEquipment);
 //                image.setImageURI();
                 if(!equipmentItem.contains(model.getKey()))
                     equipmentItem.add(model.getKey());

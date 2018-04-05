@@ -12,6 +12,7 @@
         android:layout_height="55dp"
         android:layout_marginEnd="48dp"
         android:clickable="true"
+        android:onClick="edit"
         android:scaleType="center"
         app:backgroundTint="@color/floatButton"
         app:layout_constraintBottom_toBottomOf="@+id/constraintLayout3"
@@ -31,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textViewToolbarCoach"
+            android:id="@+id/textViewToolbarMe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -53,7 +54,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageViewEdit"
             android:layout_width="128dp"
             android:layout_height="128dp"
             android:layout_marginBottom="32dp"
@@ -74,8 +75,8 @@
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="@+id/imageView" />
+            app:layout_constraintStart_toEndOf="@+id/imageViewEdit"
+            app:layout_constraintTop_toTopOf="@+id/imageViewEdit" />
 
         <TextView
             android:id="@+id/textViewMyGenderAndAge"

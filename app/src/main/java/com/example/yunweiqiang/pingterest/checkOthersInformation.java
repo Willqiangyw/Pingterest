@@ -134,6 +134,7 @@ public class checkOthersInformation extends AppCompatActivity {
         Intent intent = new Intent(this, RatingActivity.class);
         intent.putExtra("otherkey", otherKey);
         intent.putExtra("userKey", userKey);
+        intent.putExtra("otherName", userName);
         startActivity(intent);
     }
 }

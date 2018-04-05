@@ -19,6 +19,7 @@ public class RatingActivity extends AppCompatActivity {
     private RatingBar ratingBar;
     private String userKey;
     private String otherKey;
+    private String otherName;
     private TextView mUserNameTextView;
     private DatabaseReference mDatabase;
 
@@ -29,9 +30,10 @@ public class RatingActivity extends AppCompatActivity {
         Intent in = getIntent();
         otherKey = in.getStringExtra("otherkey");
         userKey = in.getStringExtra("userKey");
+        otherName = in.getStringExtra("ontherName");
         ratingBar  = (RatingBar) findViewById(R.id.ratingBar);
         mUserNameTextView = (TextView) findViewById(R.id.textViewUserName);
-        mUserNameTextView.setText(otherKey);
+        mUserNameTextView.setText(otherName);
         mDatabase = FirebaseDatabase.getInstance().getReference("Users").child(otherKey).child("rate");
     }
 
