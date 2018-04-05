@@ -47,7 +47,7 @@ public class EditMeInformation extends AppCompatActivity {
     private String city;
     private String state;
     private String zip;
-    private String longtitude;
+    private String longitude;
     private String latitude;
     private String description;
 
@@ -148,14 +148,14 @@ public class EditMeInformation extends AppCompatActivity {
             // Use the address as needed
             city = address.getLocality();
             state = address.getAdminArea();
-            longtitude = String.valueOf(address.getLongitude());
+            longitude = String.valueOf(address.getLongitude());
             latitude = String.valueOf(address.getLatitude());
         } else {
             // Display appropriate message when Geocoder services are not available
             Toast.makeText(this, "please enter correct zip code", Toast.LENGTH_LONG).show();
             city = "";
             state = "";
-            longtitude = "";
+            longitude = "";
             latitude = "";
         }
 
@@ -171,7 +171,7 @@ public class EditMeInformation extends AppCompatActivity {
             mDatabase.child("key").setValue(userKey);
             mDatabase.child("zip").setValue(zip);
             mDatabase.child("state").setValue(state);
-            mDatabase.child("longtitude").setValue(longtitude);
+            mDatabase.child("longitude").setValue(longitude);
             mDatabase.child("latitude").setValue(latitude);
             mDatabase.child("description").setValue(description);
 

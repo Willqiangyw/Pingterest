@@ -39,7 +39,7 @@ public class AddEventActivity extends AppCompatActivity
     private DatabaseReference mDatabase;
 
     public int hour, minute, year, month, day;
-    private String eventName, eventTime, eventAddr;
+    private String eventName, eventTime, eventAddr, eventTime2;
     private Button chooseTime;
 
     @Override
@@ -83,12 +83,11 @@ public class AddEventActivity extends AppCompatActivity
             tempDatabase.child("key").setValue(eventName);
             tempDatabase.child("holder").setValue(Main2Activity.CURRENT_USER_NAME);
             tempDatabase.child("time").setValue(eventTime);
+            tempDatabase.child("time2").setValue(eventTime2);
             tempDatabase.child("location").setValue(eventAddr);
             tempDatabase.child("participant").setValue("");
-            tempDatabase.child("longtitude").setValue("56");
+            tempDatabase.child("longitude").setValue("56");
             tempDatabase.child("latitude").setValue("78");
-            tempDatabase.child("timeHour").setValue(""+hour);
-            tempDatabase.child("timeMinute").setValue(""+minute);
             Toast.makeText(this,"post success", Toast.LENGTH_SHORT).show();
             finish();
         }
@@ -112,6 +111,7 @@ public class AddEventActivity extends AppCompatActivity
         this.minute = minute;
         Toast.makeText(this,year+","+month+","+day+","+this.hour+", "+this.minute, Toast.LENGTH_LONG).show();
         eventTime = day+"/"+month+"/"+year+"   "+this.hour+":"+this.minute;
+        eventTime2 =  day+"/"+month+"/"+year+"/"+this.hour+"/"+this.minute;
         chooseTime.setText(eventTime);
     }
 
