@@ -223,7 +223,7 @@ public class ChatActivity extends AppCompatActivity {
             LinearLayout linearLayout1 = mView.findViewById(R.id.singleChatLayout1);
             LinearLayout linearLayout2 = mView.findViewById(R.id.singleChatLayout2);
             LinearLayout linearLayout3 = mView.findViewById(R.id.singleChatLayout3);
-            if(!user.equals(ChatActivity.userKey)){
+            if(user!=null && !user.equals(ChatActivity.userKey)){
                 mUserTextView.setTextColor(getResources().getColor(R.color.black));
                 mTimeTextView.setTextColor(getResources().getColor(R.color.black));
 //                constraintLayout.setBackgroundResource(R.drawable.bubble_out);

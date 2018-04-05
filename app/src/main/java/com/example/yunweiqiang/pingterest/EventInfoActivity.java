@@ -120,7 +120,7 @@ public class EventInfoActivity extends AppCompatActivity {
     public void reserve(View view){
         String cur = map.get("participant");
         if(cur.length()==0){
-            mDatabase.child("participant").setValue(userKey);
+            mDatabase.child("participant").setValue(Main2Activity.CURRENT_USER_NAME);
             Toast.makeText(this, "reserve success", Toast.LENGTH_SHORT).show();
         }
         else{

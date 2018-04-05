@@ -6,68 +6,204 @@
     android:layout_height="match_parent"
     tools:context="com.example.yunweiqiang.pingterest.AddEventActivity">
 
-    <Button
-        android:id="@+id/buttonAddEvent"
-        android:layout_width="wrap_content"
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarAddEvent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textViewToolbarAddEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Create Event"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="152dp"
+            tools:layout_editor_absoluteY="12dp" />
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayoutAddEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarAddEvent">
+
+
+        <ImageView
+            android:id="@+id/imageViewAddEvent"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_marginBottom="18dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/event_round" />
+    </android.support.constraint.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/scrollViewAddEvent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonConfirmAdd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/buttonConfirmAdd"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutAddEvent"
+        app:layout_constraintVertical_bias="0.0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="71dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/card"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/textViewAddEventName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:alpha="0.7"
+                        android:text="Event Name"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/editTextAddEventName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="Cool Stuff"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="71dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/card"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/textViewAddEventTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:alpha="0.7"
+                        android:text="Time"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/buttonChooseTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/chat_box"
+                        android:onClick="showTimePickerDialog"
+                        android:text="Choose Time"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorPrimary" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="71dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/card"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/textViewAddEventAddr"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:alpha="0.7"
+                        android:text="Event Address"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/editTextAddEventAddr"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="Somewhere"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/card"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textViewAddEventDesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:alpha="0.7"
+                        android:text="Description yourself"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/editTextAddEventDesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:ems="10"
+                        android:inputType="textMultiLine"
+                        android:onClick="submit"
+                        android:text="I love play Pingpong and I’ve been playing for more than 10 years. You can’t find a more  professional and patient coach than I am…" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/buttonConfirmAdd"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/buttonBlue"
         android:onClick="submit"
-        android:text="@string/submit"
+        android:text="Confirm"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAddEventLocation" />
-
-    <EditText
-        android:id="@+id/editTextAddEventKey"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="EventKey"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextAddEventTime"
-        app:layout_constraintEnd_toEndOf="@+id/editTextAddEventTime"
-        app:layout_constraintStart_toStartOf="@+id/editTextAddEventTime"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextAddEventTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="EventTime"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextAddEventLocation"
-        app:layout_constraintEnd_toEndOf="@+id/editTextAddEventLocation"
-        app:layout_constraintStart_toStartOf="@+id/editTextAddEventLocation"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAddEventKey" />
-
-    <EditText
-        android:id="@+id/editTextAddEventLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="EventLocation"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/buttonAddEvent"
-        app:layout_constraintEnd_toEndOf="@+id/buttonAddEvent"
-        app:layout_constraintStart_toStartOf="@+id/buttonAddEvent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAddEventTime" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:onClick="showTimePickerDialog"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/editTextAddEventTime"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAddEventKey" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

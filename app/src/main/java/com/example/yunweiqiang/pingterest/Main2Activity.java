@@ -1,5 +1,6 @@
 package com.example.yunweiqiang.pingterest;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -29,6 +30,8 @@ import java.util.Map;
 
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    public static String CURRENT_USER_NAME;
 
     private FirebaseAuth mAuth;
     private FirebaseUser user;
@@ -140,6 +143,9 @@ public class Main2Activity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent i = getIntent();
+            finish();
+            startActivity(i);
             return true;
         }
 
@@ -193,11 +199,12 @@ public class Main2Activity extends AppCompatActivity
 
     private void setTexts(String key){
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users").child(key);
-        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+        mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Map<String,String> map =  (Map) dataSnapshot.getValue();
-                myName.setText(map.get("name"));
+                CURRENT_USER_NAME = map.get("name");
+                myName.setText(CURRENT_USER_NAME);
                 myEmail.setText(userEmail);
             }
 

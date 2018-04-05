@@ -5,9 +5,11 @@ import android.app.TimePickerDialog;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
@@ -25,9 +27,9 @@ import java.util.Calendar;
 public class AddEventActivity extends AppCompatActivity
         implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener{
 
-    private EditText mEventKey;
-    private EditText mEventTime;
+    private EditText mEventName;
     private EditText mEventLocation;
+    private EditText mEventDesc;
 
     private FirebaseAuth mAuth;
     private FirebaseUser user;
@@ -37,11 +39,22 @@ public class AddEventActivity extends AppCompatActivity
     private DatabaseReference mDatabase;
 
     public int hour, minute, year, month, day;
+    private String eventName, eventTime, eventAddr;
+    private Button chooseTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_event);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarAddEvent);
+        toolbar.setNavigationIcon(R.drawable.returnbutton);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
@@ -52,25 +65,25 @@ public class AddEventActivity extends AppCompatActivity
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Events");
 
-        mEventKey = (EditText) findViewById(R.id.editTextAddEventKey);
-        mEventTime = (EditText) findViewById(R.id.editTextAddEventTime);
-        mEventLocation = (EditText) findViewById(R.id.editTextAddEventLocation);
+        mEventName = (EditText) findViewById(R.id.editTextAddEventName);
+        mEventLocation = (EditText) findViewById(R.id.editTextAddEventAddr);
+        mEventDesc = (EditText) findViewById(R.id.editTextAddEventDesc);
+        chooseTime = (Button) findViewById(R.id.buttonChooseTime);
     }
 
     public void submit(View view){
-        String key = mEventKey.getText().toString();
-        String time = mEventTime.getText().toString();
-        String location = mEventLocation.getText().toString();
+        eventName = mEventName.getText().toString();
+        eventAddr = mEventLocation.getText().toString();
 
-        if(TextUtils.isEmpty(key) || TextUtils.isEmpty(time) || TextUtils.isEmpty(location)){
+        if(TextUtils.isEmpty(eventName) || TextUtils.isEmpty(eventAddr) || TextUtils.isEmpty(eventTime)){
             Toast.makeText(this,"please fill in all blanks", Toast.LENGTH_SHORT).show();
         }
         else {
-            DatabaseReference tempDatabase = mDatabase.child(key);
-            tempDatabase.child("key").setValue(key);
-            tempDatabase.child("holder").setValue(userKey);
-            tempDatabase.child("time").setValue(time);
-            tempDatabase.child("location").setValue(location);
+            DatabaseReference tempDatabase = mDatabase.child(eventName);
+            tempDatabase.child("key").setValue(eventName);
+            tempDatabase.child("holder").setValue(Main2Activity.CURRENT_USER_NAME);
+            tempDatabase.child("time").setValue(eventTime);
+            tempDatabase.child("location").setValue(eventAddr);
             tempDatabase.child("participant").setValue("");
             Toast.makeText(this,"post success", Toast.LENGTH_SHORT).show();
             finish();
@@ -87,22 +100,15 @@ public class AddEventActivity extends AppCompatActivity
 
         DatePickerDialog d = new DatePickerDialog(AddEventActivity.this, this, year, month, day);
         d.show();
-        // Create a new instance of TimePickerDialog and return it
-
     }
-
-//    public void pickPlace(View v){
-//        int PLACE_PICKER_REQUEST = 1;
-//        PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
-//
-//        startActivityForResult(builder.build(this), PLACE_PICKER_REQUEST);
-//    }
 
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         this.hour = hourOfDay;
         this.minute = minute;
         Toast.makeText(this,year+","+month+","+day+","+this.hour+", "+this.minute, Toast.LENGTH_LONG).show();
+        eventTime = day+"/"+month+"/"+year+"   "+this.hour+":"+this.minute;
+        chooseTime.setText(eventTime);
     }
 
     @Override
