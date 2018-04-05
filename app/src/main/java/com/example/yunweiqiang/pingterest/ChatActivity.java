@@ -118,7 +118,7 @@ public class ChatActivity extends AppCompatActivity {
                 options
         ) {
 
-            boolean flag2 = false;
+//            boolean flag2 = false;
 //            ViewGroup temp1;
 //            int temp2;
 //            protected boolean checkFlag()

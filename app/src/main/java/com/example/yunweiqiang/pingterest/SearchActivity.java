@@ -49,7 +49,7 @@ public class SearchActivity extends AppCompatActivity {
 //        equipmentItem.add("Supplements");
 //        equipmentItem.add("Desk");
 
-        Query query = mDatabase.orderByKey()
+        Query query = mDatabase.orderByKey().startAt("Table").endAt("Table"+"\uf8ff")
                 .limitToLast(50);
 
         FirebaseListOptions<EquipmentInformation> options = new FirebaseListOptions.Builder<EquipmentInformation>()

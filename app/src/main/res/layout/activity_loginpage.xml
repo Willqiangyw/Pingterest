@@ -16,7 +16,7 @@
         android:inputType="textEmailAddress"
         android:textColor="@color/gray"
         android:textColorHint="@color/gray"
-        app:layout_constraintBottom_toTopOf="@+id/editTextPasswordSignUp"/>
+        app:layout_constraintBottom_toTopOf="@+id/editTextPasswordSignUp" />
 
     <EditText
         android:id="@+id/editTextPasswordSignUp"
