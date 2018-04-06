@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yunweiqiang.pingterest.FindCoach">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/find_coach_1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/find_coach_1" />
+
+        <TextView
+            android:id="@+id/find_coach_2"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/find_coach_3" />
+
+
+        <EditText
+            android:id="@+id/find_coach_3"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="text"/>
+
+
+        <TextView
+            android:id="@+id/find_coach_4"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/find_coach_4" />
+
+        <EditText
+            android:id="@+id/find_coach_5"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="text"/>
+
+        <TextView
+            android:id="@+id/find_coach_6"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/find_coach_5" />
+
+        <EditText
+            android:id="@+id/find_coach_7"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="text"/>
+
+        <TextView
+            android:id="@+id/find_coach_8"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/find_coach_6" />
+
+        <EditText
+            android:id="@+id/find_coach_9"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="text"/>
+
+        <TextView
+            android:id="@+id/find_coach_10"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/find_coach_7" />
+
+        <EditText
+            android:id="@+id/find_coach_11"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="text"/>
+
+        <TextView
+            android:id="@+id/find_coach_12"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/find_coach_8" />
+
+        <EditText
+            android:id="@+id/find_coach_13"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="text"/>
+
+        <Button
+            android:id="@+id/find_coach_14"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/find_coach_2" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

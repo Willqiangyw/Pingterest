@@ -24,7 +24,7 @@ public class FirstPage extends AppCompatActivity {
     }
 
     public void findCoach(View view){
-        Intent intent = new Intent(this, findplayer2.class);
+        Intent intent = new Intent(this, FindCoach.class);
         startActivity(intent);
     }
 
