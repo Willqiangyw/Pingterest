@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -39,13 +40,14 @@ public class AddEventActivity extends AppCompatActivity
     private DatabaseReference mDatabase;
 
     public int hour, minute, year, month, day;
-    private String eventName, eventTime, eventAddr, eventTime2;
+    private String eventName, eventTime, eventAddr, eventTime2, eventDesc;
     private Button chooseTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_event);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarAddEvent);
         toolbar.setNavigationIcon(R.drawable.returnbutton);
@@ -74,8 +76,9 @@ public class AddEventActivity extends AppCompatActivity
     public void submit(View view){
         eventName = mEventName.getText().toString();
         eventAddr = mEventLocation.getText().toString();
+        eventDesc = mEventDesc.getText().toString();
 
-        if(TextUtils.isEmpty(eventName) || TextUtils.isEmpty(eventAddr) || TextUtils.isEmpty(eventTime)){
+        if(TextUtils.isEmpty(eventName) || TextUtils.isEmpty(eventAddr) || TextUtils.isEmpty(eventTime)  || TextUtils.isEmpty(eventDesc)){
             Toast.makeText(this,"please fill in all blanks", Toast.LENGTH_SHORT).show();
         }
         else {
@@ -88,6 +91,7 @@ public class AddEventActivity extends AppCompatActivity
             tempDatabase.child("participant").setValue("");
             tempDatabase.child("longitude").setValue("56");
             tempDatabase.child("latitude").setValue("78");
+            tempDatabase.child("description").setValue(eventDesc);
             Toast.makeText(this,"post success", Toast.LENGTH_SHORT).show();
             finish();
         }

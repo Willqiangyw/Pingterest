@@ -34,7 +34,7 @@
         app:srcCompat="@drawable/singleuseravatar" />
 
     <TextView
-        android:id="@+id/textViewSignleUserLevel"
+        android:id="@+id/textViewSingleUserLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Professional"

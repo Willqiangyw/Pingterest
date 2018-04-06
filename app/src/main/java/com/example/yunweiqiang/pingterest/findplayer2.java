@@ -25,6 +25,7 @@ public class findplayer2 extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseUser user;
+    private ArrayList<String> searchRes;
 
     private String userEmail;
     private String userKey;
@@ -38,6 +39,9 @@ public class findplayer2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_findplayer2);
+
+        Intent cur = getIntent();
+        searchRes = cur.getStringArrayListExtra("name");
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -78,6 +82,10 @@ public class findplayer2 extends AppCompatActivity {
                 name.setText(model.getName());
                 TextView rate = v.findViewById(R.id.textViewSingleUserRate);
                 rate.setText("Rate: " + model.getLevel());
+                TextView level = v.findViewById(R.id.textViewSingleUserLevel);
+                level.setText(model.getLevel());
+                TextView desc = v.findViewById(R.id.textViewSingleUserDesc);
+                desc.setText(model.getDescription());
                 TextView location = v.findViewById(R.id.textViewSingleUserLocation);
                 location.setText(model.getCity()+","+model.getState());
             }

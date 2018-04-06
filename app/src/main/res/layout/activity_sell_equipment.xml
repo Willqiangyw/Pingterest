@@ -15,7 +15,8 @@
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="4sp">
 
         <TextView
             android:id="@+id/textViewToolbarCoach"
@@ -85,7 +86,8 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="16dp"
-            app:srcCompat="@drawable/equip_image" />
+            app:srcCompat="@drawable/equip_image"
+            android:elevation="4sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"

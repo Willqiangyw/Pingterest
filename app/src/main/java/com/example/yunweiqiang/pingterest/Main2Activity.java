@@ -91,6 +91,7 @@ public class Main2Activity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Main2Activity.this, SearchActivity.class);
+                intent.putExtra("searchKey","");
                 startActivity(intent);
             }
         });
@@ -98,15 +99,6 @@ public class Main2Activity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.maintoolbar);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -167,6 +159,7 @@ public class Main2Activity extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_equipments) {
             Intent intent = new Intent(this, SearchActivity.class);
+            intent.putExtra("searchKey","");
             startActivity(intent);
         } else if (id == R.id.nav_my_info) {
             Intent intent = new Intent(this, Me.class);

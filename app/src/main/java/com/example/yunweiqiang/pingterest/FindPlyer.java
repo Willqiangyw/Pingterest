@@ -84,10 +84,15 @@ public class FindPlyer extends AppCompatActivity {
             @Override
             protected void populateView(View v, EventInformation model, int position) {
                 TextView time = (TextView) v.findViewById(R.id.textViewSingleTime);
-                TextView location = (TextView) v.findViewById(R.id.textViewSingleLocation);
                 time.setText(model.getTime());
-//                time.setText("heihei");
+                TextView location = (TextView) v.findViewById(R.id.textViewSingleLocation);
                 location.setText(model.getLocation());
+                TextView name = (TextView) v.findViewById(R.id.textViewSingleEventName);
+                name.setText(model.getKey());
+                TextView holder = (TextView) v.findViewById(R.id.textViewSingleEventHolder);
+                holder.setText(model.getHolder());
+                TextView desc = (TextView) v.findViewById(R.id.textViewSingleEventDescription);
+                desc.setText(model.getDescription());
             }
         };
 
