@@ -7,64 +7,177 @@
     tools:context="com.example.yunweiqiang.pingterest.EquipmentInfo">
 
 
-    <TextView
-        android:id="@+id/ItemName"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarEquipmentInfo"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ItemName"
-        app:layout_constraintBottom_toTopOf="@+id/ItemDescription"
-        app:layout_constraintEnd_toEndOf="@+id/ItemDescription"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/ItemDescription"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayoutEquipmentInfo"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarEquipmentInfo">
+
+
+        <ImageView
+            android:id="@+id/imageViewEquipmentUser"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/avatar_round" />
+
+        <TextView
+            android:id="@+id/textViewSellerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:text="Some Seller"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imageViewEquipmentUser"
+            app:layout_constraintTop_toTopOf="@+id/imageViewEquipmentUser" />
+
+        <TextView
+            android:id="@+id/textViewSellTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:alpha="0.8"
+            android:text="21/3/2018"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/textViewSellerName"
+            app:layout_constraintTop_toBottomOf="@+id/textViewSellerName" />
+
+        <TextView
+            android:id="@+id/textViewSellLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:alpha="0.8"
+            android:text="Atlanta, Georgia"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewSellTime"
+            app:layout_constraintStart_toEndOf="@+id/textViewSellTime"
+            app:layout_constraintTop_toTopOf="@+id/textViewSellTime" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageViewEquipment"
+        android:layout_width="225dp"
+        android:layout_height="225dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/textViewEquipmentName"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEquipmentName"
+        app:srcCompat="@drawable/equip_image" />
 
     <TextView
-        android:id="@+id/ItemDescription"
+        android:id="@+id/textViewCurPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ItemDescription"
-        app:layout_constraintBottom_toTopOf="@+id/ItemPrice"
-        app:layout_constraintEnd_toEndOf="@+id/ItemPrice"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/ItemPrice"
-        app:layout_constraintTop_toBottomOf="@+id/ItemName" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="$250"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutEquipmentInfo" />
 
     <TextView
-        android:id="@+id/ItemPrice"
+        android:id="@+id/textViewUsedPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ItemPrice"
-        app:layout_constraintBottom_toTopOf="@+id/Seller"
-        app:layout_constraintEnd_toEndOf="@+id/Seller"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/Seller"
-        app:layout_constraintTop_toBottomOf="@+id/ItemDescription" />
+        android:layout_marginStart="16dp"
+        android:text="$500"
+        android:textColor="@color/usedPrice"
+        android:textSize="18sp"
+        android:textStyle=""
+        app:layout_constraintBottom_toBottomOf="@+id/textViewCurPrice"
+        app:layout_constraintStart_toEndOf="@+id/textViewCurPrice"
+        app:layout_constraintTop_toTopOf="@+id/textViewCurPrice" />
 
     <TextView
-        android:id="@+id/Seller"
+        android:id="@+id/textViewEquipmentName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Seller"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/equipmentChat"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/equipmentChat"
-        app:layout_constraintTop_toBottomOf="@+id/ItemPrice" />
+        android:layout_marginTop="8dp"
+        android:text="Tiffany Ping pong paddle"
+        android:textColor="@color/black"
+        android:textSize="21sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewCurPrice"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCurPrice" />
 
-    <Button
-        android:id="@+id/equipmentChat"
+    <ImageView
+        android:id="@+id/imageViewEquipmentSeparate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewCurPrice"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewEquipment"
+        app:srcCompat="@drawable/line" />
+
+    <TextView
+        android:id="@+id/textViewEquipmentDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:text="Description:"
+        android:textColor="@color/singleItemDescription"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/imageViewEquipment"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewEquipmentSeparate" />
+
+    <TextView
+        android:id="@+id/textViewEquipmentDesc2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="I love play Pingpong and I’ve been playing for more than 10 years. You can’t find a more  professional and patient coach than I am…"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewEquipmentDesc"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEquipmentDesc" />
+
+
+    <Button
+        android:id="@+id/buttonEquipmentChat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/buttonBlue"
+        android:onClick="equipmentChat"
         android:text="Chat"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Seller" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

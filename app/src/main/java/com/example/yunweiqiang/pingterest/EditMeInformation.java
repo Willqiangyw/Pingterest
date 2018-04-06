@@ -1,10 +1,10 @@
 package com.example.yunweiqiang.pingterest;
 
-import android.app.Activity;
 import android.location.Address;
 import android.location.Geocoder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
@@ -33,21 +33,23 @@ public class EditMeInformation extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
 
-    private TextView mUserEmailTextView;
-    private EditText mUserNameEditText;
+    private EditText mUserFirstNameEditText;
     private EditText mUserAgeEditText;
-//    private EditText mUserGenderEditText;
-//    private EditText mUserLevelEditText;
-//    private EditText mUserCityEditText;
+    private EditText mUserLastNameEditText;
     private EditText mUserZipEditText;
+    private EditText mUserDescEditText;
 
-    private String name;
+    private String firstName;
+    private String lastName;
     private String age;
     private String gender;
     private String level;
     private String city;
     private String state;
     private String zip;
+    private String longitude;
+    private String latitude;
+    private String description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,18 +58,25 @@ public class EditMeInformation extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        mUserEmailTextView = findViewById(R.id.textViewUserEmailEdit);
         user = mAuth.getCurrentUser();
 
-        mUserNameEditText = (EditText) findViewById(R.id.editTextNameEdit);
-        mUserAgeEditText = (EditText) findViewById(R.id.editTextAgeEdit);
-//        mUserGenderEditText = (EditText) findViewById(R.id.editTextGenderEdit);
-//        mUserLevelEditText = (EditText) findViewById(R.id.editTextLevelEdit);
-//        mUserCityEditText = (EditText) findViewById(R.id.editTextCityEdit);
-        mUserZipEditText = (EditText) findViewById(R.id.editTextZipCode);
+        mUserFirstNameEditText = (EditText) findViewById(R.id.editTextFirstName);
+        mUserLastNameEditText = (EditText) findViewById(R.id.editTextLastName);
+        mUserAgeEditText = (EditText) findViewById(R.id.editTextAge);
+        mUserZipEditText = (EditText) findViewById(R.id.editTextUserZipCode);
+        mUserDescEditText = (EditText) findViewById(R.id.editTextUserDesc);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarEditMe);
+        toolbar.setNavigationIcon(R.drawable.returnbutton);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         //use spinner to replace old version of gender
-        Spinner mGenderSpinner = (Spinner) findViewById(R.id.GenderSpinner);
+        Spinner mGenderSpinner = (Spinner) findViewById(R.id.spinnerGender);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.gender, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -89,9 +98,9 @@ public class EditMeInformation extends AppCompatActivity {
         });
 
         //another spinner for level
-        Spinner mLevelSpinner = (Spinner) findViewById(R.id.spinnerSkillLevel);
+        Spinner mLevelSpinner = (Spinner) findViewById(R.id.spinnerLevel);
         ArrayAdapter<CharSequence> levelAdapter = ArrayAdapter.createFromResource(this,
-                R.array.skill_level, android.R.layout.simple_spinner_item);
+                R.array.skill_level_num, android.R.layout.simple_spinner_item);
         levelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mLevelSpinner.setAdapter(levelAdapter);
         mLevelSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -112,7 +121,6 @@ public class EditMeInformation extends AppCompatActivity {
 
         if (user != null) {
             userEmail = user.getEmail();
-            mUserEmailTextView.setText("Hey, " + userEmail);
             userKey = userEmail.substring(0, userEmail.indexOf('@'));
             mDatabase = FirebaseDatabase.getInstance().getReference("Users").child(userKey);
         } else {
@@ -126,35 +134,36 @@ public class EditMeInformation extends AppCompatActivity {
             return;
         }
 
-        name = mUserNameEditText.getText().toString();
+        firstName = mUserFirstNameEditText.getText().toString();
+        lastName = mUserLastNameEditText.getText().toString();
         age = mUserAgeEditText.getText().toString();
-//        String gender = mUserGenderEditText.getText().toString();
-//        level = mUserLevelEditText.getText().toString();
-//        city = mUserCityEditText.getText().toString();
         zip = mUserZipEditText.getText().toString();
+        description = mUserDescEditText.getText().toString();
 
+        //calculate address based on zip code
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
         List<Address> addresses = geocoder.getFromLocationName(zip, 1);
         if (addresses != null && !addresses.isEmpty()) {
             Address address = addresses.get(0);
             // Use the address as needed
-//            String message = String.format("City: "+ address.getLocality() + ", State: " +
-//                   address.getAdminArea());
-//            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
             city = address.getLocality();
             state = address.getAdminArea();
+            longitude = String.valueOf(address.getLongitude());
+            latitude = String.valueOf(address.getLatitude());
         } else {
             // Display appropriate message when Geocoder services are not available
             Toast.makeText(this, "please enter correct zip code", Toast.LENGTH_LONG).show();
             city = "";
             state = "";
+            longitude = "";
+            latitude = "";
         }
 
-        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(age) || TextUtils.isEmpty(gender)
-                || TextUtils.isEmpty(level) || TextUtils.isEmpty(city) || TextUtils.isEmpty(state)) {
+        if (TextUtils.isEmpty(firstName) || TextUtils.isEmpty(lastName) || TextUtils.isEmpty(age) || TextUtils.isEmpty(gender)
+                || TextUtils.isEmpty(level) || TextUtils.isEmpty(zip)  || TextUtils.isEmpty(city) || TextUtils.isEmpty(state)) {
             Toast.makeText(EditMeInformation.this, "please fill in correct information", Toast.LENGTH_LONG).show();
         } else {
-            mDatabase.child("name").setValue(name);
+            mDatabase.child("name").setValue(firstName+" "+lastName);
             mDatabase.child("age").setValue(age);
             mDatabase.child("gender").setValue(gender);
             mDatabase.child("level").setValue(level);
@@ -162,6 +171,10 @@ public class EditMeInformation extends AppCompatActivity {
             mDatabase.child("key").setValue(userKey);
             mDatabase.child("zip").setValue(zip);
             mDatabase.child("state").setValue(state);
+            mDatabase.child("longitude").setValue(longitude);
+            mDatabase.child("latitude").setValue(latitude);
+            mDatabase.child("description").setValue(description);
+
             Toast.makeText(EditMeInformation.this, "Successfully submit", Toast.LENGTH_SHORT).show();
             finish();
         }

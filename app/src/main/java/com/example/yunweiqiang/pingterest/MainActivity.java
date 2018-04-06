@@ -47,7 +47,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    public void sampleButton (View view){
+        //FOR SignIn Button, click and open another activity for signing in
+        Intent intent = new Intent (this, Main2Activity.class);
+        startActivity(intent);
+    }
 
     public void checkStatus (View view){
 

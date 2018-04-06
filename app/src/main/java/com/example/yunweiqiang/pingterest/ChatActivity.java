@@ -1,18 +1,25 @@
 package com.example.yunweiqiang.pingterest;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
+import android.support.constraint.ConstraintSet;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.LayoutDirection;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,15 +35,17 @@ import org.w3c.dom.Text;
 
 import java.sql.Time;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class ChatActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser user;
 
     private String userEmail;
-    private String userKey;
+    static private String userKey;
 
     private DatabaseReference mDatabase;
 
@@ -45,11 +54,13 @@ public class ChatActivity extends AppCompatActivity {
 
     private FirebaseRecyclerAdapter<Message, messageViewHolder> adapter;
     private FirebaseRecyclerAdapter<Message, messageViewHolder> adapter2;
+    private Query query;
 
     private DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
 //    public static boolean flag = false;
-    String key = "";
+    private String key;
+    private String otherName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +71,7 @@ public class ChatActivity extends AppCompatActivity {
         mtypeInEditText = (EditText) findViewById(R.id.typeInEditText);
         Intent in = getIntent();
         key = in.getStringExtra("key");
+        otherName = in.getStringExtra("otherkey");
         mDatabase = FirebaseDatabase.getInstance().getReference("Chats").child(key);
 
         mChatRecyclerView = (RecyclerView) findViewById(R.id.chatRecyclerView);
@@ -69,6 +81,15 @@ public class ChatActivity extends AppCompatActivity {
         mChatRecyclerView.setLayoutManager(linearLayoutManager);
 
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarChat);
+        toolbar.setNavigationIcon(R.drawable.returnbutton);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
         //get user information
         user = mAuth.getCurrentUser();
         assert user != null;
@@ -76,9 +97,16 @@ public class ChatActivity extends AppCompatActivity {
         assert userEmail != null;
         userKey = userEmail.substring(0,userEmail.indexOf('@'));
 
+
+
+        TextView title = (TextView) findViewById(R.id.textViewToolbarChat) ;
+        title.setText(otherName);
+
+
+
         //try everything here
 
-        Query query = mDatabase.orderByKey()
+        query = mDatabase.orderByKey()
                 .limitToLast(50);
 
         FirebaseRecyclerOptions<Message> options =
@@ -90,7 +118,7 @@ public class ChatActivity extends AppCompatActivity {
                 options
         ) {
 
-            boolean flag2 = false;
+//            boolean flag2 = false;
 //            ViewGroup temp1;
 //            int temp2;
 //            protected boolean checkFlag()
@@ -166,10 +194,16 @@ public class ChatActivity extends AppCompatActivity {
 //            newMessage.child("time").setValue(currentTime);
             newMessage.child("time").setValue(df.format(currentTime));
             mtypeInEditText.setText("");
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            mChatRecyclerView.smoothScrollToPosition(adapter.getItemCount()+1);
         }
     }
 
-    public static class messageViewHolder extends RecyclerView.ViewHolder{
+    public class messageViewHolder extends RecyclerView.ViewHolder{
 
         View mView;
         public messageViewHolder(View itemView) {
@@ -182,9 +216,37 @@ public class ChatActivity extends AppCompatActivity {
             TextView mMessageTextView = (TextView) mView.findViewById(R.id.messagecontentTextView);
             mMessageTextView.setText(content);
             TextView mUserTextView = (TextView) mView.findViewById(R.id.userNameChatTextView);
-            mUserTextView.setText(user);
+
             TextView mTimeTextView = (TextView) mView.findViewById(R.id.timeTextView);
-            mTimeTextView.setText(time);
+
+//            ConstraintLayout constraintLayout = (ConstraintLayout) mView.findViewById(R.id.singleChatLayout);
+            LinearLayout linearLayout1 = mView.findViewById(R.id.singleChatLayout1);
+            LinearLayout linearLayout2 = mView.findViewById(R.id.singleChatLayout2);
+            LinearLayout linearLayout3 = mView.findViewById(R.id.singleChatLayout3);
+            if(user!=null && !user.equals(ChatActivity.userKey)){
+                mUserTextView.setTextColor(getResources().getColor(R.color.black));
+                mTimeTextView.setTextColor(getResources().getColor(R.color.black));
+//                constraintLayout.setBackgroundResource(R.drawable.bubble_out);
+                mMessageTextView.setBackgroundResource(R.drawable.bubble_final_2);
+
+                linearLayout2.setGravity(Gravity.LEFT);
+                linearLayout1.setGravity(Gravity.LEFT);
+                mUserTextView.setText(user);
+                mTimeTextView.setText(time);
+            }
+            else{
+                mUserTextView.setTextColor(getResources().getColor(R.color.chatBlue));
+                mTimeTextView.setTextColor(getResources().getColor(R.color.chatBlue));
+//                constraintLayout.setBackgroundResource(R.drawable.bubble_in);
+                mMessageTextView.setBackgroundResource(R.drawable.bubble_final_1);
+                linearLayout2.setGravity(Gravity.RIGHT);
+                linearLayout1.setGravity(Gravity.RIGHT);
+//                linearLayout3.setGravity(Gravity.RIGHT);
+                mUserTextView.setText(time);
+                mTimeTextView.setText(user);
+            }
+
+
 
         }
     }

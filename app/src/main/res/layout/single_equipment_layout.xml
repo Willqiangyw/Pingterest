@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/common_google_signin_btn_text_dark_pressed"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/textViewKeyInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
+        android:layout_weight="1"
+        android:padding="2dp"
+        android:text="Tiffany Ping Pong Paddle"
+        android:textColor="@color/singleItemTitle"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageViewEquipment"
+        app:layout_constraintTop_toTopOf="@+id/imageViewEquipment" />
+
+    <ImageView
+        android:id="@+id/imageViewEquipment"
+        android:layout_width="114dp"
+        android:layout_height="101dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/single_equipment" />
+
+    <TextView
+        android:id="@+id/textViewPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$120"
+        android:textColor="@color/singleItemPrice"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewsingleEquipTime"
+        app:layout_constraintStart_toStartOf="@+id/textViewKeyInfo"
+        app:layout_constraintTop_toBottomOf="@+id/textViewKeyInfo" />
+
+    <TextView
+        android:id="@+id/textViewsingleEquipTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:text="12 Dec, 2017"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewEquipment"
+        app:layout_constraintStart_toStartOf="@+id/textViewPrice" />
+
+    <TextView
+        android:id="@+id/textViewSingleEquipLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="Atlanta, Georgia"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewsingleEquipTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewsingleEquipTime" />
+    "
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="24dp"
+    android:text="TextView"
+    android:textColor="@android:color/background_light"
+    android:textSize="24sp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:text="Price" />
+
+</android.support.constraint.ConstraintLayout>

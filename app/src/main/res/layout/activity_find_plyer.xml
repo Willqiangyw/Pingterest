@@ -4,27 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg"
     tools:context="com.example.yunweiqiang.pingterest.FindPlyer">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/userInfoRecyclerView"
+    <Button
+        android:id="@+id/buttonAddEventCreate"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:clickable="true"
-        android:contextClickable="true"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:onClick="click"
+        android:layout_height="wrap_content"
+        android:background="@color/buttonBlue"
+        android:onClick="addEvent"
+        android:text="Add Evemt"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintStart_toStartOf="parent" />
 
-    </android.support.v7.widget.RecyclerView>
+    <ListView
+        android:id="@+id/listViewEvent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:divider="@android:drawable/screen_background_light_transparent"
+        android:dividerHeight="10.0dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAddEventCreate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarEvent" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textViewToolbarEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Events"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp"/>
+
+    </android.support.v7.widget.Toolbar>
+
 </android.support.constraint.ConstraintLayout>

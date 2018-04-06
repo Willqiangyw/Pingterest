@@ -6,106 +6,198 @@
     android:layout_height="match_parent"
     tools:context="com.example.yunweiqiang.pingterest.checkOthersInformation">
 
-    <TextView
-        android:id="@+id/textViewUserLevel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonChatWithIt"
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButtonOther"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="48dp"
+        android:clickable="true"
+        android:onClick="rate"
+        android:scaleType="center"
+        app:backgroundTint="@color/floatButton"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayoutOther"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutOther"
+        app:srcCompat="@drawable/ic_star" />
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarOther"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewOtherCity" />
+        app:layout_constraintTop_toTopOf="parent">
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayoutOther"
+        android:layout_width="match_parent"
+        android:layout_height="177dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarOther">
+
+
+        <ImageView
+            android:id="@+id/imageViewOther"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_marginBottom="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/avatar_round" />
+
+        <TextView
+            android:id="@+id/textViewOtherName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:text="Yunwei Qiang"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imageViewOther"
+            app:layout_constraintTop_toTopOf="@+id/imageViewOther" />
+
+        <TextView
+            android:id="@+id/textViewOtherGenderAndAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Male, 24"
+            android:textColor="@color/white"
+            android:textSize="21sp"
+            app:layout_constraintStart_toStartOf="@+id/textViewOtherName"
+            app:layout_constraintTop_toBottomOf="@+id/textViewOtherName" />
+
+        <TextView
+            android:id="@+id/textViewOtherScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="1600"
+            android:textColor="@color/white"
+            android:textSize="21sp"
+            app:layout_constraintStart_toStartOf="@+id/textViewOtherGenderAndAge"
+            app:layout_constraintTop_toBottomOf="@+id/textViewOtherGenderAndAge" />
+
+    </android.support.constraint.ConstraintLayout>
+
 
     <TextView
-        android:id="@+id/textViewOtherCity"
+        android:id="@+id/textViewOtherLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewUserLevel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:text="Level"
+        android:textColor="@color/singleItemDescription"
+        android:textSize="21sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewOtherAge" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutOther" />
 
     <TextView
-        android:id="@+id/textViewOtherAge"
+        android:id="@+id/textViewOtherLevel2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewOtherCity"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewOtherGender" />
+        android:layout_marginStart="24dp"
+        android:text="Professional"
+        android:textColor="@color/black"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewOtherLevel"
+        app:layout_constraintStart_toEndOf="@+id/textViewOtherLevel"
+        app:layout_constraintTop_toTopOf="@+id/textViewOtherLevel" />
 
     <TextView
-        android:id="@+id/textViewOtherGender"
+        android:id="@+id/textViewOtherAddr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewOtherAge"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewOtherName" />
+        android:text="Atlanta, Georgia, 30339"
+        android:textColor="@color/black"
+        android:textSize="21sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewOtherAddr2"
+        app:layout_constraintStart_toStartOf="@+id/textViewOtherLevel2" />
 
     <TextView
-        android:id="@+id/textViewOtherName"
+        android:id="@+id/textViewOtherAddr2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewOtherGender"
+        android:text="Addr"
+        android:textColor="@color/singleItemDescription"
+        android:textSize="21sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewOtherLevel"
+        app:layout_constraintTop_toBottomOf="@+id/textViewOtherLevel" />
+
+    <ImageView
+        android:id="@+id/imageViewOther4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/textViewOtherAddr"
+        app:layout_constraintTop_toBottomOf="@+id/textViewOtherAddr"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:srcCompat="@drawable/line" />
+
+    <TextView
+        android:id="@+id/textViewOtherDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Description:"
+        android:textColor="@color/singleItemDescription"
+        android:textSize="21sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewOtherAddr2"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewOther4" />
+
+    <TextView
+        android:id="@+id/textViewOtherDesc2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="I love play Pingpong and I’ve been playing for more than 10 years. You can’t find a more  professional and patient coach than I am…"
+        android:textColor="@color/black"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewOtherDesc"
+        app:layout_constraintTop_toBottomOf="@+id/textViewOtherDesc" />
+
+    <ImageView
+        android:id="@+id/imageViewOther5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewOtherAddr"
+        app:layout_constraintTop_toBottomOf="@+id/textViewOtherDesc2"
+        app:srcCompat="@drawable/line" />
 
     <Button
-        android:id="@+id/buttonChatWithIt"
-        android:layout_width="wrap_content"
+        android:id="@+id/buttonChatWithOther"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="16dp"
+        android:background="@color/buttonBlue"
         android:onClick="chat"
         android:text="Chat"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUserLevel" />
-
-    <Button
-        android:id="@+id/buttonToRatingPage"
-        android:layout_width="88dp"
-        android:layout_height="wrap_content"
-        android:onClick="rate"
-        android:text="Rate"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonChatWithIt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonChatWithIt"
-        app:layout_constraintTop_toTopOf="@+id/buttonChatWithIt" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

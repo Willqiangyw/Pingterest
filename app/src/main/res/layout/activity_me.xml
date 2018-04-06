@@ -6,83 +6,190 @@
     android:layout_height="match_parent"
     tools:context="com.example.yunweiqiang.pingterest.Me">
 
-    <TextView
-        android:id="@+id/textViewUserEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewUserName"
-        app:layout_constraintEnd_toEndOf="@+id/textViewUserName"
-        app:layout_constraintStart_toStartOf="@+id/textViewUserName"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewUserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewUserAge"
-        app:layout_constraintEnd_toEndOf="@+id/textViewUserAge"
-        app:layout_constraintStart_toStartOf="@+id/textViewUserAge"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUserEmail" />
-
-    <TextView
-        android:id="@+id/textViewUserAge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewUserGender"
-        app:layout_constraintEnd_toEndOf="@+id/textViewUserGender"
-        app:layout_constraintStart_toStartOf="@+id/textViewUserGender"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUserName" />
-
-    <TextView
-        android:id="@+id/textViewUserGender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewUserLevel"
-        app:layout_constraintEnd_toEndOf="@+id/textViewUserLevel"
-        app:layout_constraintStart_toStartOf="@+id/textViewUserLevel"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUserAge" />
-
-    <TextView
-        android:id="@+id/textViewUserLevel"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewUserCity"
-        app:layout_constraintEnd_toEndOf="@+id/textViewUserCity"
-        app:layout_constraintStart_toStartOf="@+id/textViewUserCity"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUserGender" />
-
-    <TextView
-        android:id="@+id/textViewUserCity"
-        android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonEdit"
-        app:layout_constraintEnd_toEndOf="@+id/buttonEdit"
-        app:layout_constraintStart_toStartOf="@+id/buttonEdit"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUserLevel" />
-
-    <Button
-        android:id="@+id/buttonEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButtonMe"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="48dp"
+        android:clickable="true"
         android:onClick="edit"
-        android:text="@string/edit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUserCity" />
+        android:scaleType="center"
+        app:backgroundTint="@color/floatButton"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+        app:srcCompat="@drawable/ic_pencil" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarMe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textViewToolbarMe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="My Information"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="177dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarMe">
+
+
+        <ImageView
+            android:id="@+id/imageViewEdit"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_marginBottom="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/avatar_round" />
+
+        <TextView
+            android:id="@+id/textViewMyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:text="Yunwei Qiang"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imageViewEdit"
+            app:layout_constraintTop_toTopOf="@+id/imageViewEdit" />
+
+        <TextView
+            android:id="@+id/textViewMyGenderAndAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Male, 24"
+            android:textColor="@color/white"
+            android:textSize="21sp"
+            app:layout_constraintStart_toStartOf="@+id/textViewMyName"
+            app:layout_constraintTop_toBottomOf="@+id/textViewMyName" />
+
+        <TextView
+            android:id="@+id/textViewMyScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="1600"
+            android:textColor="@color/white"
+            android:textSize="21sp"
+            app:layout_constraintStart_toStartOf="@+id/textViewMyGenderAndAge"
+            app:layout_constraintTop_toBottomOf="@+id/textViewMyGenderAndAge" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/textViewMyLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Level"
+        android:textColor="@color/singleItemDescription"
+        android:textSize="21sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+
+    <TextView
+        android:id="@+id/textViewMyLevel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Professional"
+        android:textColor="@color/black"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewMyLevel"
+        app:layout_constraintStart_toEndOf="@+id/textViewMyLevel"
+        app:layout_constraintTop_toTopOf="@+id/textViewMyLevel" />
+
+    <TextView
+        android:id="@+id/textViewMyAddr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Atlanta, Georgia, 30339"
+        android:textColor="@color/black"
+        android:textSize="21sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewMyAddr2"
+        app:layout_constraintStart_toStartOf="@+id/textViewMyLevel2" />
+
+    <TextView
+        android:id="@+id/textViewMyAddr2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Addr"
+        android:textColor="@color/singleItemDescription"
+        android:textSize="21sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewMyLevel"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMyLevel" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/textViewMyAddr"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMyAddr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/line" />
+
+    <TextView
+        android:id="@+id/textViewMyDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Description:"
+        android:textColor="@color/singleItemDescription"
+        android:textSize="21sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewMyAddr2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <TextView
+        android:id="@+id/textViewMyDesc2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="I love play Pingpong and I’ve been playing for more than 10 years. You can’t find a more  professional and patient coach than I am…"
+        android:textColor="@color/black"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewMyDesc"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMyDesc" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewMyAddr"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMyDesc2"
+        app:srcCompat="@drawable/line" />
 
 </android.support.constraint.ConstraintLayout>

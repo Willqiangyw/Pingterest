@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yunweiqiang.pingterest.checkOthersInformation">
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButtonEvent"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="48dp"
+        android:clickable="true"
+        android:scaleType="center"
+        app:backgroundTint="@color/floatButton"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayoutEvent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutEvent"
+        app:srcCompat="@drawable/ic_star" />
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarEventInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayoutEvent"
+        android:layout_width="match_parent"
+        android:layout_height="177dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarEventInfo">
+
+
+        <ImageView
+            android:id="@+id/imageViewEvent"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_marginBottom="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/event_round" />
+
+        <TextView
+            android:id="@+id/textViewEventName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:text="GT PingPong"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imageViewEvent"
+            app:layout_constraintTop_toTopOf="@+id/imageViewEvent" />
+
+        <TextView
+            android:id="@+id/textViewEventHolder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Holder:"
+            android:textColor="@color/white"
+            android:textSize="21sp"
+            app:layout_constraintStart_toStartOf="@+id/textViewEventName"
+            app:layout_constraintTop_toBottomOf="@+id/textViewEventName" />
+
+        <TextView
+            android:id="@+id/textViewEventHolder2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Will Qiang"
+            android:textColor="@color/white"
+            android:textSize="21sp"
+            app:layout_constraintStart_toStartOf="@+id/textViewEventHolder"
+            app:layout_constraintTop_toBottomOf="@+id/textViewEventHolder" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/textViewEventTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Time"
+        android:textColor="@color/singleItemDescription"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutEvent" />
+
+    <TextView
+        android:id="@+id/textViewEventTime2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="04/01/2018 2:00PM"
+        android:textColor="@color/black"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewEventTime"
+        app:layout_constraintStart_toEndOf="@+id/textViewEventTime"
+        app:layout_constraintTop_toTopOf="@+id/textViewEventTime" />
+
+    <TextView
+        android:id="@+id/textViewEventAddr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gatech Main Campus \n Altanta, GA, 30332"
+        android:textColor="@color/black"
+        android:textSize="21sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewEventAddr2"
+        app:layout_constraintStart_toStartOf="@+id/textViewEventTime2" />
+
+    <TextView
+        android:id="@+id/textViewEventAddr2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Addr"
+        android:textColor="@color/singleItemDescription"
+        android:textSize="21sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewEventTime"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEventTime" />
+
+    <ImageView
+        android:id="@+id/imageViewEvent4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewEventAddr"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEventAddr"
+        app:srcCompat="@drawable/line" />
+
+    <TextView
+        android:id="@+id/textViewEventDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Description:"
+        android:textColor="@color/singleItemDescription"
+        android:textSize="21sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewEventAddr2"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewEvent4" />
+
+    <TextView
+        android:id="@+id/textViewEventDesc2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="I love play Pingpong and I’ve been playing for more than 10 years. You can’t find a more  professional and patient coach than I am…"
+        android:textColor="@color/black"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewEventDesc"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEventDesc" />
+
+    <ImageView
+        android:id="@+id/imageViewEvent5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewEventAddr"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEventDesc2"
+        app:srcCompat="@drawable/line" />
+
+    <TextView
+        android:id="@+id/textViewEventParticipant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Participant:"
+        android:textColor="@color/singleItemDescription"
+        android:textSize="21sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewEventAddr2"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewEvent5" />
+
+    <TextView
+        android:id="@+id/textViewEventParticipant2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Someone Else"
+        android:textColor="@color/black"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/textViewEventParticipant"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEventParticipant" />
+
+    <ImageView
+        android:id="@+id/imageViewEvent6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewEventAddr"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEventParticipant2"
+        app:srcCompat="@drawable/line" />
+
+    <Button
+        android:id="@+id/buttonChatWithHolder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/buttonBlue"
+        android:onClick="chat"
+        android:text="Chat"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonReserve"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonReserve"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:background="@color/buttonBlue"
+        android:onClick="reserve"
+        android:text="Reserve"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonChatWithHolder" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_find_coach"
+            android:icon="@drawable/qiu4"
+            android:title="Find Coach" />
+        <item
+            android:id="@+id/nav_find_player"
+            android:icon="@drawable/qiu3"
+            android:title="Find Player" />
+        <item
+            android:id="@+id/nav_equipments"
+            android:icon="@drawable/qiu2"
+            android:title="Equipments" />
+        <item
+            android:id="@+id/nav_my_info"
+            android:icon="?android:attr/fingerprintAuthDrawable"
+            android:title="My Information" />
+    </group>
+
+    <item android:title="Settings">
+        <menu>
+            <item
+                android:id="@+id/nav_edit_info"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Edit my info" />
+            <item
+                android:id="@+id/nav_log_out"
+                android:icon="@android:drawable/ic_lock_power_off"
+                android:title="Log Out" />
+        </menu>
+    </item>
+
+</menu>

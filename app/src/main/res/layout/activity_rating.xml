@@ -4,46 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context="com.example.yunweiqiang.pingterest.RatingActivity">
 
-    <TextView
-        android:id="@+id/textViewUserName"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarRate"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/ratingBar"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textViewToolbarRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Other's Name"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp" />
+
+    </android.support.v7.widget.Toolbar>
 
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:rating="2.5"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSubmitRating"
-        app:layout_constraintEnd_toEndOf="@+id/textViewUserName"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/textViewUserName"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUserName" />
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewRate"
+        app:layout_constraintStart_toStartOf="@+id/imageViewRate"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewRate" />
 
-    <Button
-        android:id="@+id/buttonSubmitRating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:onClick="submit"
-        android:text="@string/submit"
+    <ImageView
+        android:id="@+id/imageViewRate"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginBottom="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarRate"
+        app:srcCompat="@drawable/avatar_round" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton2"
+        android:layout_width="57dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="32dp"
+        android:clickable="true"
+        android:onClick="submit"
         app:layout_constraintEnd_toEndOf="@+id/ratingBar"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/ratingBar"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+        app:srcCompat="@drawable/ic_right" />
 
 </android.support.constraint.ConstraintLayout>

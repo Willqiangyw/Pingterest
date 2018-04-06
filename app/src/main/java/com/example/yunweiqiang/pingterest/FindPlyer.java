@@ -1,5 +1,6 @@
 package com.example.yunweiqiang.pingterest;
 
+
         import android.content.Intent;
         import android.support.annotation.NonNull;
         import android.support.v7.app.AppCompatActivity;
@@ -22,25 +23,92 @@ package com.example.yunweiqiang.pingterest;
         import com.google.firebase.database.FirebaseDatabase;
         import com.google.firebase.database.Query;
 
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.firebase.ui.database.FirebaseListAdapter;
+import com.firebase.ui.database.FirebaseListOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+
 public class FindPlyer extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
-    private FirebaseUser user;
+//    private FirebaseAuth mAuth;
+//    private FirebaseUser user;
+//
+//    private String userEmail;
+//    private String userKey;
+//
+//    private DatabaseReference mDatabase;
+//
+//    private RecyclerView mUserInfoRecyclerView;
 
-    private String userEmail;
-    private String userKey;
+//    private FirebaseRecyclerAdapter<UserInfomation, FindPlyer.UserInfoViewHolder> adapter;
 
     private DatabaseReference mDatabase;
+    private FirebaseListAdapter<EventInformation> adapter;
 
-    private RecyclerView mUserInfoRecyclerView;
-
-    private FirebaseRecyclerAdapter<UserInfomation, FindPlyer.UserInfoViewHolder> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_plyer);
 
+        mDatabase = FirebaseDatabase.getInstance().getReference("Events");
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarEvent);
+        toolbar.setNavigationIcon(R.drawable.returnbutton);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+        Query query = mDatabase.orderByKey()
+                .limitToLast(50);
+
+        FirebaseListOptions<EventInformation> options = new FirebaseListOptions.Builder<EventInformation>()
+                .setLayout(R.layout.single_event_layout)
+                .setQuery(query, EventInformation.class)
+                .build();
+
+        adapter = new FirebaseListAdapter<EventInformation>(options) {
+            @Override
+            protected void populateView(View v, EventInformation model, int position) {
+                TextView time = (TextView) v.findViewById(R.id.textViewSingleTime);
+                TextView location = (TextView) v.findViewById(R.id.textViewSingleLocation);
+                time.setText(model.getTime());
+//                time.setText("heihei");
+                location.setText(model.getLocation());
+            }
+        };
+
+        ListView mEventListView = findViewById(R.id.listViewEvent);
+        mEventListView.setAdapter(adapter);
+
+        mEventListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Log.d("abc", "hahahaha");
+//                Intent intent = new Intent(findplayer2.this, ChatActivity.class);
+                Intent intent = new Intent(FindPlyer.this, EventInfoActivity.class);
+                EventInformation itemRef = adapter.getItem(position);
+
+//                Toast toast = Toast.makeText(findplayer2.this, itemRef.getKey(), Toast.LENGTH_SHORT);
+//                toast.show();
+                intent.putExtra("key", itemRef.getKey());
+                startActivity(intent);
+            }
+        });
+        /*
         mAuth = FirebaseAuth.getInstance();
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Users");
@@ -92,8 +160,24 @@ public class FindPlyer extends AppCompatActivity {
 
         mUserInfoRecyclerView.setAdapter(adapter);
         adapter.startListening();
+        */
+
+
     }
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
+/*
     public static class UserInfoViewHolder extends RecyclerView.ViewHolder{
 
         View mView;
@@ -112,9 +196,12 @@ public class FindPlyer extends AppCompatActivity {
         }
 
     }
+    */
 
-    public void click(View view){
-        Intent intent = new Intent(this, Me.class);
+    public void addEvent(View view){
+        Intent intent = new Intent(this, AddEventActivity.class);
         startActivity(intent);
     }
 }
+
+

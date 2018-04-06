@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.media.Rating;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ public class RatingActivity extends AppCompatActivity {
     private RatingBar ratingBar;
     private String userKey;
     private String otherKey;
+    private String otherName;
     private TextView mUserNameTextView;
     private DatabaseReference mDatabase;
 
@@ -27,12 +29,23 @@ public class RatingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rating);
         Intent in = getIntent();
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarRate);
+        toolbar.setNavigationIcon(R.drawable.returnbutton);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
         otherKey = in.getStringExtra("otherkey");
         userKey = in.getStringExtra("userKey");
+        otherName = in.getStringExtra("otherName");
         ratingBar  = (RatingBar) findViewById(R.id.ratingBar);
-        mUserNameTextView = (TextView) findViewById(R.id.textViewUserName);
-        mUserNameTextView.setText(userKey);
-        mDatabase = FirebaseDatabase.getInstance().getReference("Users").child(otherKey).child("rate");
+        mUserNameTextView = (TextView) findViewById(R.id.textViewToolbarRate);
+        mUserNameTextView.setText(otherName);
+        mDatabase = FirebaseDatabase.getInstance().getReference("Users").child(otherKey).child("score");
     }
 
     public void submit (View view){

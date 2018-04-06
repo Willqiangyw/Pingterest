@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/singlebg"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textViewSingleTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_weight="1"
+        android:padding="2dp"
+        android:alpha="0.3"
+        android:text="12 Dec, 2017"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewSingleLocation"
+        app:layout_constraintStart_toEndOf="@+id/imageViewEvent"
+        app:layout_constraintTop_toTopOf="@+id/textViewSingleLocation" />
+
+    <TextView
+        android:id="@+id/textViewSingleLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="32dp"
+        android:layout_weight="1"
+        android:alpha="0.3"
+        android:text="Atlanta, Georgia"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewEvent"
+        app:layout_constraintStart_toEndOf="@+id/textViewSingleTime" />
+
+    <ImageView
+        android:id="@+id/imageViewEvent"
+        android:layout_width="114dp"
+        android:layout_height="101dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/singleevent" />
+
+    <TextView
+        android:id="@+id/textViewSingleEventHolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="2dp"
+        android:text="Yunwei Qiang"
+        android:textColor="@color/singleItemTitle"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewEvent" />
+
+    <TextView
+        android:id="@+id/textViewSingleEventDescription"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:text="A good social event for Pingpong lovers. Gather at 4th floor CRC today!"
+        android:textColor="@color/singleItemDescription"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSingleLocation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewSingleTime"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSingleEventHolder" />
+
+    <TextView
+        android:id="@+id/textViewSingleEventName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="GT Pingpong"
+        android:textColor="@color/singleItemTitle"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewSingleEventHolder"
+        app:layout_constraintStart_toStartOf="@+id/textViewSingleEventDescription"
+        app:layout_constraintTop_toTopOf="@+id/imageViewEvent" />
+
+</android.support.constraint.ConstraintLayout>
