@@ -51,6 +51,7 @@
         <activity android:name=".FindPlyer" />
         <activity android:name=".findplayer2" />
         <activity android:name=".FindCoach" />
+        <activity android:name=".FindEvent" />
         <activity android:name=".checkOthersInformation" />
         <activity android:name=".SearchActivity">
             <intent-filter>

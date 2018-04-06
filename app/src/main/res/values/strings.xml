@@ -14,7 +14,12 @@
     <string name="find_coach_7">Price (Please enter integer)</string>
     <string name="find_coach_8">Coach rating</string>
     <string name="find_player">find player</string>
-    <string name="findplayer2">findplayer2</string>
+    <string name="find_event_1">please enter your preference</string>
+    <string name="find_event_2">Zip code</string>
+    <string name="find_event_3">Distance</string>
+    <string name="find_event_4">Date</string>
+    <string name="find_event_5">Time</string>
+    <string name="find_event_6">Find your event</string>
     <string name="equipments">equipments</string>
     <string name="me">Me</string>
     <string name="edit">Edit</string>
