@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yunweiqiang.pingterest.FindEvent">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/find_event_1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/find_event_1" />
+
+        <TextView
+            android:id="@+id/find_event_2"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/find_event_2" />
+
+
+        <EditText
+            android:id="@+id/find_event_3"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="text"/>
+
+
+        <TextView
+            android:id="@+id/find_event_4"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/find_event_3" />
+
+        <EditText
+            android:id="@+id/find_event_5"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="text"/>
+
+        <TextView
+            android:id="@+id/find_event_6"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/find_event_4" />
+
+        <EditText
+            android:id="@+id/find_event_7"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="text"/>
+
+        <TextView
+            android:id="@+id/find_event_8"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/find_event_5" />
+
+        <EditText
+            android:id="@+id/find_event_9"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="text"/>
+
+
+        <Button
+            android:id="@+id/find_event_10"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/find_event_6" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
