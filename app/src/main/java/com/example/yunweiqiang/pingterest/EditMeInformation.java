@@ -39,6 +39,7 @@ public class EditMeInformation extends AppCompatActivity {
     private EditText mUserLastNameEditText;
     private EditText mUserZipEditText;
     private EditText mUserDescEditText;
+    private EditText mUserRatingEditText;
 
     private String firstName;
     private String lastName;
@@ -51,6 +52,7 @@ public class EditMeInformation extends AppCompatActivity {
     private String longitude;
     private String latitude;
     private String description;
+    private String rating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,7 @@ public class EditMeInformation extends AppCompatActivity {
         mUserAgeEditText = (EditText) findViewById(R.id.editTextAge);
         mUserZipEditText = (EditText) findViewById(R.id.editTextUserZipCode);
         mUserDescEditText = (EditText) findViewById(R.id.editTextUserDesc);
+        mUserRatingEditText = (EditText) findViewById(R.id.editTextUserRating);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarEditMe);
         toolbar.setNavigationIcon(R.drawable.returnbutton);
@@ -141,7 +144,7 @@ public class EditMeInformation extends AppCompatActivity {
         age = mUserAgeEditText.getText().toString();
         zip = mUserZipEditText.getText().toString();
         description = mUserDescEditText.getText().toString();
-
+        rating = mUserRatingEditText.getText().toString();
         //calculate address based on zip code
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
         List<Address> addresses = geocoder.getFromLocationName(zip, 1);
@@ -176,6 +179,7 @@ public class EditMeInformation extends AppCompatActivity {
             mDatabase.child("longitude").setValue(longitude);
             mDatabase.child("latitude").setValue(latitude);
             mDatabase.child("description").setValue(description);
+            mDatabase.child("rating").setValue(rating);
 
             Toast.makeText(EditMeInformation.this, "Successfully submit", Toast.LENGTH_SHORT).show();
             finish();

@@ -47,6 +47,16 @@
             android:textColor="@android:color/background_light"
             android:textSize="24sp"/>
 
+        <Button
+            android:id="@+id/buttonFindPlayer2Search"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:background="@drawable/ic_search_white"
+            android:onClick="trySearch"
+            tools:layout_editor_absoluteX="323dp"
+            tools:layout_editor_absoluteY="4dp" />
+
     </android.support.v7.widget.Toolbar>
 
 

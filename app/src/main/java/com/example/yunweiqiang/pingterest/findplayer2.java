@@ -1,14 +1,18 @@
 package com.example.yunweiqiang.pingterest;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseListOptions;
@@ -25,7 +29,7 @@ public class findplayer2 extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseUser user;
-    private ArrayList<String> searchRes;
+    public static ArrayList<String> searchRes;
 
     private String userEmail;
     private String userKey;
@@ -41,15 +45,13 @@ public class findplayer2 extends AppCompatActivity {
         setContentView(R.layout.activity_findplayer2);
 
         Intent cur = getIntent();
-        searchRes = cur.getStringArrayListExtra("name");
+//        searchRes = cur.getStringArrayListExtra("name");
 
         mAuth = FirebaseAuth.getInstance();
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Users");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarCoach);
-//        toolbar.setTitle("Coaches");
-//        toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setNavigationIcon(R.drawable.returnbutton);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,8 +59,6 @@ public class findplayer2 extends AppCompatActivity {
                 onBackPressed();
             }
         });
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayShowTitleEnabled(false);
         mListView = (ListView) findViewById(R.id.userListView);
 
         user = mAuth.getCurrentUser();
@@ -113,6 +113,31 @@ public class findplayer2 extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main2, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            Intent i = getIntent();
+            finish();
+            startActivity(i);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
         adapter.startListening();
@@ -124,9 +149,23 @@ public class findplayer2 extends AppCompatActivity {
         adapter.stopListening();
     }
 
-    public void tryClick(View view){
-        Intent intent = new Intent(findplayer2.this, ChatActivity.class);
-        startActivity(intent);
+    public void trySearch(View view){
+        Intent intent = new Intent(findplayer2.this, FindCoach.class);
+        startActivityForResult(intent, 1);
     }
+    @Override
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                 searchRes = data.getStringArrayListExtra("result");
+                Toast.makeText(this, searchRes.toString(), Toast.LENGTH_LONG).show();
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+                Toast.makeText(findplayer2.this, "get result failed", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 }
