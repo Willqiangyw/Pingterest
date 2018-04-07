@@ -12,6 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/buttonBlue"
+        android:elevation="4sp"
         android:onClick="addEvent"
         android:text="Add Evemt"
         android:textAllCaps="false"
@@ -20,8 +21,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        android:elevation="4sp"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
         android:id="@+id/listViewEvent"
@@ -59,6 +59,15 @@
             android:textColor="@android:color/background_light"
             android:textSize="24sp"/>
 
+        <Button
+            android:id="@+id/buttonFindplyerSearch"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:background="@drawable/ic_search_white"
+            android:onClick="eventSearch"
+            tools:layout_editor_absoluteX="323dp"
+            tools:layout_editor_absoluteY="4dp" />
     </android.support.v7.widget.Toolbar>
 
 </android.support.constraint.ConstraintLayout>

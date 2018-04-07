@@ -1,6 +1,7 @@
 package com.example.yunweiqiang.pingterest;
 
 
+        import android.app.Activity;
         import android.content.Intent;
         import android.support.annotation.NonNull;
         import android.support.v7.app.AppCompatActivity;
@@ -38,6 +39,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
+        import java.util.ArrayList;
+
 public class FindPlyer extends AppCompatActivity {
 
 //    private FirebaseAuth mAuth;
@@ -54,6 +57,9 @@ public class FindPlyer extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     private FirebaseListAdapter<EventInformation> adapter;
+
+
+    public static ArrayList<String> searchRes;
 
 
     @Override
@@ -206,6 +212,27 @@ public class FindPlyer extends AppCompatActivity {
     public void addEvent(View view){
         Intent intent = new Intent(this, AddEventActivity.class);
         startActivity(intent);
+    }
+
+    public void eventSearch(View view){
+        Intent intent = new Intent(FindPlyer.this, FindEvent.class);
+        startActivityForResult(intent, 1);
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                searchRes = data.getStringArrayListExtra("result");
+                Toast.makeText(this, searchRes.toString(), Toast.LENGTH_LONG).show();
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+                Toast.makeText(FindPlyer.this, "get result failed", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
 

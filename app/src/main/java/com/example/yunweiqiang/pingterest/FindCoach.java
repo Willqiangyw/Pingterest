@@ -6,6 +6,8 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -41,7 +43,7 @@ public class FindCoach extends AppCompatActivity {
     private String level;
     private String longitude;
     private String latitude;
-    private String zip;
+    private String zip,age,rating;
 
     private EditText coachZip, coachAge, coachRating;
     private ArrayList<String> coachName;
@@ -50,6 +52,15 @@ public class FindCoach extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_coach);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarSearchCoach);
+        toolbar.setNavigationIcon(R.drawable.returnbutton);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         Spinner mLevelSpinner = (Spinner) findViewById(R.id.find_coach_9);
         ArrayAdapter<CharSequence> levelAdapter = ArrayAdapter.createFromResource(this,
@@ -131,6 +142,8 @@ public class FindCoach extends AppCompatActivity {
 
     public void confirm(View view)  throws IOException {
         zip = coachZip.getText().toString();
+        age = coachAge.getText().toString();
+        rating = coachRating.getText().toString();
         //calculate longitude and altitude
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
         List<Address> addresses = geocoder.getFromLocationName(zip, 1);
@@ -145,48 +158,53 @@ public class FindCoach extends AppCompatActivity {
             longitude = "";
             latitude = "";
         }
-        final String urlString = "https://us-central1-pingterest-ffca7.cloudfunctions.net/findCoach?targetAge="
-                + coachAge.getText().toString()
-                + "&userLong="
-                + longitude
-                + "&userLat="
-                + latitude
-                + "&targetRating="
-                + coachRating.getText().toString()
-                + "&targetLevel="
-                + level
-                + "&userGender="
-                + gender;
-
-        // List<String> coachList = new ArrayList<>();
-
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try{
-                    coachName = new ArrayList<>();
-                    JSONObject jsonObject = getJSONObjectFromURL(urlString);
-                    JSONArray contacts = jsonObject.getJSONArray("coaches");
-                    // List<String> coachList = new ArrayList<>();
-                    for (int i = 0; i < contacts.length(); i++) {
-                        String s = contacts.getString(i);
-                        // coachList.add(s);
-                        coachName.add(s);
-                    }
-                    // Toast.makeText(FindCoach.this, urlString, Toast.LENGTH_LONG).show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        thread.start();
-        try {
-            thread.join();
-        } catch (InterruptedException e){
-            e.printStackTrace();
+        if(TextUtils.isEmpty(age)&&TextUtils.isEmpty(rating)&&TextUtils.isEmpty(level)&&TextUtils.isEmpty(gender)
+                &&TextUtils.isEmpty(longitude)&&TextUtils.isEmpty(latitude)){
+            Toast.makeText(this,"Please choose or fill at least one field",Toast.LENGTH_SHORT).show();
         }
+        else {
+            final String urlString = "https://us-central1-pingterest-ffca7.cloudfunctions.net/findCoach?targetAge="
+                    + age
+                    + "&userLong="
+                    + longitude
+                    + "&userLat="
+                    + latitude
+                    + "&targetRating="
+                    + rating
+                    + "&targetLevel="
+                    + level
+                    + "&userGender="
+                    + gender;
+
+            // List<String> coachList = new ArrayList<>();
+
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        coachName = new ArrayList<>();
+                        JSONObject jsonObject = getJSONObjectFromURL(urlString);
+                        JSONArray contacts = jsonObject.getJSONArray("coaches");
+                        // List<String> coachList = new ArrayList<>();
+                        for (int i = 0; i < contacts.length(); i++) {
+                            String s = contacts.getString(i);
+                            // coachList.add(s);
+                            coachName.add(s);
+                        }
+                        // Toast.makeText(FindCoach.this, urlString, Toast.LENGTH_LONG).show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            thread.start();
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 //        for (int i = 0; i < coachName.size(); i++) {
 //            Toast.makeText(FindCoach.this, coachName.toString(), Toast.LENGTH_LONG).show();
 //        }
@@ -194,9 +212,10 @@ public class FindCoach extends AppCompatActivity {
 //        Intent intent = new Intent(FindCoach.this, findplayer2.class);
 //        intent.putStringArrayListExtra("name",coachName);
 //        startActivity(intent);
-        Intent returnIntent = new Intent();
-        returnIntent.putStringArrayListExtra("result",coachName);
-        setResult(Activity.RESULT_OK,returnIntent);
-        finish();
+            Intent returnIntent = new Intent();
+            returnIntent.putStringArrayListExtra("result", coachName);
+            setResult(Activity.RESULT_OK, returnIntent);
+            finish();
+        }
     }
 }

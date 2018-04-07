@@ -6,75 +6,183 @@
     android:layout_height="match_parent"
     tools:context="com.example.yunweiqiang.pingterest.FindEvent">
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarSearchEvent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="4sp">
 
         <TextView
-            android:id="@+id/find_event_1"
-            android:layout_height="wrap_content"
+            android:id="@+id/textViewToolbarSearchEvent"
             android:layout_width="wrap_content"
-            android:text="@string/find_event_1" />
-
-        <TextView
-            android:id="@+id/find_event_2"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/find_event_2" />
+            android:layout_gravity="center"
+            android:text="Search Event"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="152dp"
+            tools:layout_editor_absoluteY="12dp" />
 
+    </android.support.v7.widget.Toolbar>
+    <ScrollView
+        android:id="@+id/scrollViewSearchEvent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarSearchEvent"
+        app:layout_constraintVertical_bias="0.0">
 
-        <EditText
-            android:id="@+id/find_event_3"
-            android:layout_height="wrap_content"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:inputType="text"/>
+            android:layout_height="71dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/card"
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/find_event_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:alpha="0.7"
+                android:text="Zip Code"
+                android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/find_event_4"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/find_event_3" />
+            <EditText
+                android:id="@+id/find_event_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:ems="10"
+                android:hint="Zip code of playing place"
+                android:inputType="number"
+                android:text="30339" />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/find_event_5"
-            android:layout_height="wrap_content"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:inputType="text"/>
+            android:layout_height="71dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/card"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/find_event_6"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/find_event_4" />
+            <TextView
+                android:id="@+id/find_event_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:alpha="0.7"
+                android:text="Distance"
+                android:textSize="18sp" />
 
-        <EditText
-            android:id="@+id/find_event_7"
-            android:layout_height="wrap_content"
+            <EditText
+                android:id="@+id/find_event_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:ems="10"
+                android:hint="Distance from you (KMs)"
+                android:inputType="number"
+                android:text="20" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:inputType="text"/>
+            android:layout_height="71dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/card"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/find_event_8"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/find_event_5" />
 
-        <EditText
-            android:id="@+id/find_event_9"
-            android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/find_event_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:alpha="0.7"
+                android:text="Time"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/find_event_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/chat_box"
+                android:onClick="showTimePickerDialog"
+                android:text="Choose Time"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimary" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:inputType="text"/>
+            android:layout_height="71dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/card"
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/find_event_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:alpha="0.7"
+                android:text="Time Frame (hours)"
+                android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/find_event_10"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/find_event_6" />
+            <EditText
+                android:id="@+id/find_event_9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:ems="10"
+                android:hint="Time Shift from your chosen time"
+                android:inputType="text"/>
+        </LinearLayout>
+
     </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/find_event_10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/buttonBlue"
+        android:onClick="confirm"
+        android:text="Confirm"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

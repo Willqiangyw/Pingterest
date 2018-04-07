@@ -153,8 +153,8 @@ public class findplayer2 extends AppCompatActivity {
         Intent intent = new Intent(findplayer2.this, FindCoach.class);
         startActivityForResult(intent, 1);
     }
-    @Override
 
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (requestCode == 1) {
