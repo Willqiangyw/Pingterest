@@ -152,13 +152,19 @@ public class FindEvent extends AppCompatActivity
         else {
             final String urlString = "https://us-central1-pingterest-ffca7.cloudfunctions.net/findEvent?userLong="
 //                    + longitude
-                    +56
+                    +"84.3901"
                     +"&userLat="
-                    +78
+                    +"33.7812"
 //                    + latitude
-                    + "&targetDist=" + dist
-                    + "&targetDate=" + time
-                    + "&targetTime=" + frame;
+                    + "&targetDist="
+//                    + dist
+                    +"50"
+                    + "&targetDate="
+//                    + time
+                    +"2018/03/17/11/7"
+                    + "&targetTime="
+//                    + frame
+                    +"72";
 
             Thread thread = new Thread(new Runnable() {
                 @Override
