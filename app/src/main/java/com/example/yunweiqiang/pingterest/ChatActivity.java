@@ -127,7 +127,7 @@ public class ChatActivity extends AppCompatActivity {
 
             @Override
             protected void onBindViewHolder(@NonNull messageViewHolder holder, int position, @NonNull Message model) {
-                    holder.setContent(model.getContent(), model.getUser(), model.getTime());
+                    holder.setContent(model.getContent(), model.getUser(), model.getTime(), model.getUserName());
 //                    holder.se
 //                    if(model.getUser().equals(userKey))
 //                        flag2 = true;
@@ -190,11 +190,12 @@ public class ChatActivity extends AppCompatActivity {
         String message = mtypeInEditText.getText().toString();
         if(!TextUtils.isEmpty(message)){
             Date currentTime = Calendar.getInstance().getTime();
-            final DatabaseReference newMessage = mDatabase.push();
-            newMessage.child("content").setValue(message);
-            newMessage.child("user").setValue(userKey);
-//            newMessage.child("time").setValue(currentTime);
-            newMessage.child("time").setValue(df.format(currentTime));
+//            final DatabaseReference newMessage = mDatabase.push();
+//            newMessage.child("content").setValue(message);
+//            newMessage.child("user").setValue(userKey);
+//            newMessage.child("time").setValue(df.format(currentTime));
+            Message m = new Message(message, userKey, df.format(currentTime), Main2Activity.CURRENT_USER_NAME);
+            mDatabase.push().setValue(m);
             mtypeInEditText.setText("");
             try {
                 Thread.sleep(200);
@@ -214,7 +215,7 @@ public class ChatActivity extends AppCompatActivity {
 //            mView.layout
         }
 
-        public void setContent(String content, String user, String time) {
+        public void setContent(String content, String user, String time, String userName) {
             TextView mMessageTextView = (TextView) mView.findViewById(R.id.messagecontentTextView);
             mMessageTextView.setText(content);
             TextView mUserTextView = (TextView) mView.findViewById(R.id.userNameChatTextView);
@@ -233,7 +234,7 @@ public class ChatActivity extends AppCompatActivity {
 
                 linearLayout2.setGravity(Gravity.LEFT);
                 linearLayout1.setGravity(Gravity.LEFT);
-                mUserTextView.setText(user);
+                mUserTextView.setText(userName);
                 mTimeTextView.setText(time);
             }
             else{
@@ -245,7 +246,7 @@ public class ChatActivity extends AppCompatActivity {
                 linearLayout1.setGravity(Gravity.RIGHT);
 //                linearLayout3.setGravity(Gravity.RIGHT);
                 mUserTextView.setText(time);
-                mTimeTextView.setText(user);
+                mTimeTextView.setText(userName);
             }
 
 

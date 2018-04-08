@@ -101,15 +101,15 @@ public class checkOthersInformation extends AppCompatActivity {
                 String userLevel = map.get("level");
                 String userGender = map.get("gender");
                 //add later
-//                String userScore = map.get("rate");
-//                String userDesc = map.get("description");
+                String userScore = map.get("rate");
+                String userDesc = map.get("description");
 
                 mUserGenderandAgeTextView.setText(userGender + ", " + userAge);
                 mUserAddrTextView.setText(userCity + "," + userState + "," + userZip);
                 mUserNameTextView.setText(userName);
                 mUserLevelTextView.setText(userLevel);
-//                mMyScoreTextView.setText(userScore);
-//                mMyDescTextView.setText(userDesc);
+                mUserScoreTextView.setText(userScore);
+                mUserDescTextView.setText(userDesc);
 
             }
 

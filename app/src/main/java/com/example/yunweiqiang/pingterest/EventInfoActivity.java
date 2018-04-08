@@ -79,6 +79,7 @@ public class EventInfoActivity extends AppCompatActivity {
         mEventTimeTextView = findViewById(R.id.textViewEventTime2);
         mEventLocationTextView = findViewById(R.id.textViewEventAddr);
         mEventParticipantTextView = findViewById(R.id.textViewEventParticipant2);
+        mEventDescTextView = findViewById(R.id.textViewEventDesc2);
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -91,7 +92,7 @@ public class EventInfoActivity extends AppCompatActivity {
                 String eventLocation = map.get("location");
                 String eventParticipant = map.get("participant");
                 //add later
-//                String eventDesc = map.get("description");
+                String eventDesc = map.get("description");
                 otherKey = eventHolder;
 
                 mEventKeyTextView.setText(eventKey);
@@ -99,7 +100,7 @@ public class EventInfoActivity extends AppCompatActivity {
                 mEventTimeTextView.setText(eventTime);
                 mEventLocationTextView.setText(eventLocation);
                 mEventParticipantTextView.setText(eventParticipant);
-//                mEventDescTextView.setText(eventDesc);
+                mEventDescTextView.setText(eventDesc);
             }
 
             @Override

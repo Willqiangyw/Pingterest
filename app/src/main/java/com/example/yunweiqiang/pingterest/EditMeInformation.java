@@ -10,10 +10,12 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -53,6 +55,7 @@ public class EditMeInformation extends AppCompatActivity {
     private String latitude;
     private String description;
     private String rating;
+    private String isCoach;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +80,21 @@ public class EditMeInformation extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+            }
+        });
+
+
+        isCoach = "no";
+        ToggleButton toggle = (ToggleButton) findViewById(R.id.toggleButtonBeCoach);
+        toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // The toggle is enabled
+                    isCoach = "yes";
+                } else {
+                    // The toggle is disabled
+                    isCoach = "no";
+                }
             }
         });
 
@@ -180,6 +198,7 @@ public class EditMeInformation extends AppCompatActivity {
             mDatabase.child("latitude").setValue(latitude);
             mDatabase.child("description").setValue(description);
             mDatabase.child("rating").setValue(rating);
+            mDatabase.child("isCoach").setValue(isCoach);
 
             Toast.makeText(EditMeInformation.this, "Successfully submit", Toast.LENGTH_SHORT).show();
             finish();

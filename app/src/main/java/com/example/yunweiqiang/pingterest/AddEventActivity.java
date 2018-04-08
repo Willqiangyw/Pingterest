@@ -2,6 +2,8 @@ package com.example.yunweiqiang.pingterest;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.location.Address;
+import android.location.Geocoder;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,14 +24,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-
+import java.io.IOException;
 import java.util.Calendar;
+import java.util.List;
+import java.util.Locale;
 
 public class AddEventActivity extends AppCompatActivity
         implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener{
 
     private EditText mEventName;
-    private EditText mEventLocation;
+    private EditText mEventZip;
     private EditText mEventDesc;
 
     private FirebaseAuth mAuth;
@@ -40,7 +44,7 @@ public class AddEventActivity extends AppCompatActivity
     private DatabaseReference mDatabase;
 
     public int hour, minute, year, month, day;
-    private String eventName, eventTime, eventAddr, eventTime2, eventDesc;
+    private String eventName, eventTime, eventZip, eventTime2, eventDesc, eventLongitude, eventLatitude, eventState, eventCity;
     private Button chooseTime;
 
     @Override
@@ -68,17 +72,36 @@ public class AddEventActivity extends AppCompatActivity
         mDatabase = FirebaseDatabase.getInstance().getReference("Events");
 
         mEventName = (EditText) findViewById(R.id.editTextAddEventName);
-        mEventLocation = (EditText) findViewById(R.id.editTextAddEventAddr);
+        mEventZip = (EditText) findViewById(R.id.editTextAddEventAddr);
         mEventDesc = (EditText) findViewById(R.id.editTextAddEventDesc);
         chooseTime = (Button) findViewById(R.id.buttonChooseTime);
     }
 
-    public void submit(View view){
+    public void submit(View view) throws IOException{
         eventName = mEventName.getText().toString();
-        eventAddr = mEventLocation.getText().toString();
+        eventZip = mEventZip.getText().toString();
         eventDesc = mEventDesc.getText().toString();
 
-        if(TextUtils.isEmpty(eventName) || TextUtils.isEmpty(eventAddr) || TextUtils.isEmpty(eventTime)  || TextUtils.isEmpty(eventDesc)){
+        //calculate address based on zip code
+        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+        List<Address> addresses = geocoder.getFromLocationName(eventZip, 1);
+        if (addresses != null && !addresses.isEmpty()) {
+            Address address = addresses.get(0);
+            // Use the address as needed
+            eventCity = address.getLocality();
+            eventState = address.getAdminArea();
+            eventLongitude = String.valueOf(address.getLongitude());
+            eventLatitude = String.valueOf(address.getLatitude());
+        } else {
+            // Display appropriate message when Geocoder services are not available
+            Toast.makeText(this, "please enter correct zip code", Toast.LENGTH_LONG).show();
+            eventCity = "";
+            eventState = "";
+            eventLongitude = "";
+            eventLatitude = "";
+        }
+
+        if(TextUtils.isEmpty(eventName) || TextUtils.isEmpty(eventZip) || TextUtils.isEmpty(eventTime)  || TextUtils.isEmpty(eventDesc)){
             Toast.makeText(this,"please fill in all blanks", Toast.LENGTH_SHORT).show();
         }
         else {
@@ -87,10 +110,10 @@ public class AddEventActivity extends AppCompatActivity
             tempDatabase.child("holder").setValue(Main2Activity.CURRENT_USER_NAME);
             tempDatabase.child("time").setValue(eventTime);
             tempDatabase.child("time2").setValue(eventTime2);
-            tempDatabase.child("location").setValue(eventAddr);
+            tempDatabase.child("location").setValue(eventCity +","+eventState);
             tempDatabase.child("participant").setValue("");
-            tempDatabase.child("longitude").setValue("56");
-            tempDatabase.child("latitude").setValue("78");
+            tempDatabase.child("longitude").setValue(eventLongitude);
+            tempDatabase.child("latitude").setValue(eventLatitude);
             tempDatabase.child("description").setValue(eventDesc);
             Toast.makeText(this,"post success", Toast.LENGTH_SHORT).show();
             finish();
