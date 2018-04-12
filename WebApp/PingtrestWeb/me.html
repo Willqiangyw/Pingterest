@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Checkout example for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="form-validation.css" rel="stylesheet"> -->
+  </head>
+
+  <body class="bg-light">
+       <div class="wrapper">
+            <!-- Sidebar Holder -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <a><img src="https://www.w3schools.com/howto/img_avatar2.png" width="100%" height="100%" style="padding-left: 20px; padding-right: 20px; padding-bottom: 10px;"></a>                    
+                    <h3 id="InfoName">Alice Sander</h3>
+                    <p class="text-white" id="InfoEmail">asander@test.com</p>
+                </div>
+                <ul class="list-unstyled components">
+                    <li style="padding: 10px;">Level: 1</li>
+                    <li style="padding: 10px;">Address: <br/> &ensp; Atlanta, GA, 00000 </li>
+                    <li style="padding: 10px;">Description:</li>
+                </ul>
+                <ul class="list-unstyled CTAs">
+                    <li><a href="me.html" class="download">Edit Info</a></li>
+                    <li><a href="" class="article" onclick="return signout()">Logout</a></li>
+                </ul>
+            </nav>
+
+            <!-- Page Content Holder -->
+            <div id="content">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                
+          <a id="sidebarCollapse" href="#">
+                <img src="https://www.w3schools.com/howto/img_avatar2.png" height="42" width="42"></a>
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse" id="navbarColor01" style="">
+                  <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active">
+                      <a class="nav-link" style="padding-left: 20px;">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="searchCoach.html">Find Coach <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="searchPlayer.html">Find Player</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link">Equipment</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script>
+</script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyD6XbIxu9Gr1cFmUU6VX3xHudigU2nlhUk",
+        authDomain: "pingterest-ffca7.firebaseapp.com",
+        databaseURL: "https://pingterest-ffca7.firebaseio.com",
+        projectId: "pingterest-ffca7",
+        storageBucket: "pingterest-ffca7.appspot.com",
+        messagingSenderId: "234412542999"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="js/dashboard.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script type="text/javascript">
+            $(document).ready(function () {
+                $("#sidebar").mCustomScrollbar({
+                    theme: "minimal"
+                });
+
+                $('#dismiss, .overlay').on('click', function () {
+                    $('#sidebar').removeClass('active');
+                    $('.overlay').fadeOut();
+                });
+
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').addClass('active');
+                    $('.overlay').fadeIn();
+                    $('.collapse.in').toggleClass('in');
+                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+                });
+            });
+        </script>
+  </body>
+</html>
