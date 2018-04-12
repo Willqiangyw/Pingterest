@@ -1,2 +1,2 @@
 # Pingterest
-Android App development
+Web App Development
