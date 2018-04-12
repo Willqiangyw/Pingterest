@@ -55,7 +55,7 @@ public class LOGINPAGE extends AppCompatActivity {
                                 assert user != null;
                                 String userEmail = user.getEmail();
                                 Toast.makeText(LOGINPAGE.this, "Welcome back! " + userEmail, Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(LOGINPAGE.this, FirstPage.class);
+                                Intent intent = new Intent(LOGINPAGE.this, Main2Activity.class);
                                 startActivity(intent);
                                 finish();
                             }
@@ -72,6 +72,6 @@ public class LOGINPAGE extends AppCompatActivity {
     public void signUp(View view){
         Intent intent = new Intent (this, SignUpPage.class);
         startActivity(intent);
-        finish();
+//        finish();
     }
 }

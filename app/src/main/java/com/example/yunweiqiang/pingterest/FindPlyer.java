@@ -59,7 +59,7 @@ public class FindPlyer extends AppCompatActivity {
     private FirebaseListAdapter<EventInformation> adapter;
 
 
-    public static ArrayList<String> searchRes;
+    public  ArrayList<String> searchRes = new ArrayList<>();
 
 
     @Override
@@ -89,6 +89,8 @@ public class FindPlyer extends AppCompatActivity {
         adapter = new FirebaseListAdapter<EventInformation>(options) {
             @Override
             protected void populateView(View v, EventInformation model, int position) {
+                EventInformation e = getItem(position);
+                Log.d("MyActivity", "currently populating event is "+e.getKey());
                 TextView time = (TextView) v.findViewById(R.id.textViewSingleTime);
                 time.setText(model.getTime());
                 TextView location = (TextView) v.findViewById(R.id.textViewSingleLocation);
@@ -99,6 +101,24 @@ public class FindPlyer extends AppCompatActivity {
                 holder.setText(model.getHolder());
                 TextView desc = (TextView) v.findViewById(R.id.textViewSingleEventDescription);
                 desc.setText(model.getDescription());
+            }
+
+            @Override
+            public View getView(int position, View view, ViewGroup viewGroup) {
+                EventInformation u = getItem(position);
+                final LayoutInflater something = getLayoutInflater();
+                if(checkHide(u)){
+                    Log.d("MyActivity", "currently discarding event is "+u.getKey());
+//                    LayoutInflater lf = LayoutInflater.cloneInContext(something.getContext());
+                    View tempview = something.inflate(R.layout.row_null,null);
+//                    populateView(tempview, u, position);
+                    return tempview;
+                }
+                else{
+                    View tempview = something.inflate(R.layout.single_event_layout,null);
+                    populateView(tempview, u, position);
+                    return tempview;
+                }
             }
         };
 
@@ -233,6 +253,14 @@ public class FindPlyer extends AppCompatActivity {
                 Toast.makeText(FindPlyer.this, "get result failed", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    private boolean checkHide(EventInformation user){
+        if(searchRes.size()==0)
+            return false;
+        if(!searchRes.contains(user.getKey()))
+            return true;
+        return false;
     }
 }
 

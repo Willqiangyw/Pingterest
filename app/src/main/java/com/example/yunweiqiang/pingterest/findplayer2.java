@@ -1,14 +1,19 @@
 package com.example.yunweiqiang.pingterest;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -29,7 +34,7 @@ public class findplayer2 extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseUser user;
-    public static ArrayList<String> searchRes;
+    public  ArrayList<String> searchRes = new ArrayList<>();
 
     private String userEmail;
     private String userKey;
@@ -78,18 +83,63 @@ public class findplayer2 extends AppCompatActivity {
         adapter = new FirebaseListAdapter<UserInfomation>(options) {
             @Override
             protected void populateView(View v, UserInfomation model, int position) {
+                UserInfomation u = getItem(position);
+//                if(u.getName().equals(Main2Activity.CURRENT_USER_NAME)){
+//                    return;
+//                }
+                Log.d("MyActivity", "currently populating name is "+u.getName());
                 TextView name = v.findViewById(R.id.textViewUserInfo);
                 name.setText(model.getName());
                 TextView rate = v.findViewById(R.id.textViewSingleUserRate);
-                rate.setText("Rate: " + model.getLevel());
+                rate.setText("Rate: " + model.getRating());
                 TextView level = v.findViewById(R.id.textViewSingleUserLevel);
                 level.setText(model.getLevel());
                 TextView desc = v.findViewById(R.id.textViewSingleUserDesc);
                 desc.setText(model.getDescription());
                 TextView location = v.findViewById(R.id.textViewSingleUserLocation);
                 location.setText(model.getCity()+","+model.getState());
+//                if( name = "Yunwei Qiang")
+//                    v.
+            }
+
+            @Override
+            public View getView(int position, View view, ViewGroup viewGroup) {
+                UserInfomation u = getItem(position);
+                final LayoutInflater something = getLayoutInflater();
+                if(u.getName().equals(Main2Activity.CURRENT_USER_NAME) || checkHide(u)){
+                    Log.d("MyActivity", "currently discarding name is "+u.getName());
+//                    LayoutInflater lf = LayoutInflater.cloneInContext(something.getContext());
+                    View tempview = something.inflate(R.layout.row_null,null);
+//                    populateView(tempview, u, position);
+                    return tempview;
+                }
+                else{
+                    View tempview = something.inflate(R.layout.single_user_layout,null);
+                    populateView(tempview, u, position);
+                    return tempview;
+                }
+//                if (view == null) {
+//                    view = LayoutInflater.from(viewGroup.getContext()).inflate(mLayout, viewGroup, false);
+//                }
+//
+//                UserInfomation model = getItem(position);
+//
+//                // Call out to subclass to marshall this model into the provided view
+//                View convertView;
+//                if(model.getName().equals(Main2Activity.CURRENT_USER_NAME)){
+//                    convertView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_null, viewGroup, false);
+//                    populateView(convertView, model, position);
+//                }
+//                else{
+//                    convertView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_null, viewGroup, false);
+//                    populateView(view, model, position);
+//                }
+//
+//                return view;
             }
         };
+
+
 
         ListView mUserListView = findViewById(R.id.userListView);
         mUserListView.setAdapter(adapter);
@@ -160,6 +210,7 @@ public class findplayer2 extends AppCompatActivity {
         if (requestCode == 1) {
             if(resultCode == Activity.RESULT_OK){
                  searchRes = data.getStringArrayListExtra("result");
+                 Log.d("getFromSearch", searchRes.toString());
                 Toast.makeText(this, searchRes.toString(), Toast.LENGTH_LONG).show();
             }
             if (resultCode == Activity.RESULT_CANCELED) {
@@ -167,5 +218,13 @@ public class findplayer2 extends AppCompatActivity {
                 Toast.makeText(findplayer2.this, "get result failed", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    private boolean checkHide(UserInfomation user){
+        if(searchRes.size()==0)
+            return false;
+        if(!searchRes.contains(user.getKey()))
+            return true;
+        return false;
     }
 }

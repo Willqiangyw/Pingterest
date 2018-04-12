@@ -25,6 +25,13 @@ public class UserInfomation {
 
     }
 
+    public UserInfomation(String name, String key, String gender, String level, String age, String city, String state, String zip,
+                            String description, String latitude, String longitude, String rating, String isCoach){
+
+        mName = name; mKey = key; mGender = gender;
+
+    }
+
     public String getName(){
         return mName;
     }

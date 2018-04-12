@@ -25,25 +25,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LOGINPAGE"
-            android:parentActivityName=".MainActivity"
-            tools:targetApi="jelly_bean" />
+            android:name=".LOGINPAGE"/>
         <activity
-            android:name=".SignUpPage"
-            android:parentActivityName=".MainActivity"
-            tools:targetApi="jelly_bean" />
+            android:name=".SignUpPage"/>
         <activity
-            android:name=".FirstPage"
-            android:parentActivityName=".MainActivity"
-            tools:targetApi="jelly_bean" />
+            android:name=".FirstPage"/>
         <activity
-            android:name=".Me"
-            android:parentActivityName=".FirstPage"
-            tools:targetApi="jelly_bean" />
+            android:name=".Me"/>
         <activity
-            android:name=".EditMeInformation"
-            android:parentActivityName=".Me"
-            tools:targetApi="jelly_bean" />
+            android:name=".EditMeInformation"/>
         <activity
             android:name=".bottomNavigation"
             android:label="@string/title_activity_bottom_navigation" />

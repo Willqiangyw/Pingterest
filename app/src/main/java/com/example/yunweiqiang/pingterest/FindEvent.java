@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -110,14 +111,14 @@ public class FindEvent extends AppCompatActivity
         this.hour = hourOfDay;
         this.minute = minute;
         Toast.makeText(this,year+","+month+","+day+","+this.hour+", "+this.minute, Toast.LENGTH_LONG).show();
-        time =  day+"/"+month+"/"+year+"/"+this.hour+"/"+this.minute;
+        time =  year+"/"+month+"/"+day+"/"+this.hour+"/"+this.minute;
         chooseTime.setText(time);
     }
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         this.year = year;
-        this.month = month;
+        this.month = month+1;
         this.day = dayOfMonth;
         TimePickerDialog t = new TimePickerDialog(this, this, hour, minute,
                 DateFormat.is24HourFormat(FindEvent.this));
@@ -145,27 +146,28 @@ public class FindEvent extends AppCompatActivity
             latitude = "";
         }
 
-        if(TextUtils.isEmpty(dist)&&TextUtils.isEmpty(time)&&TextUtils.isEmpty(frame)
-                &&TextUtils.isEmpty(longitude)&&TextUtils.isEmpty(latitude)){
-            Toast.makeText(this,"Please choose or fill at least one field",Toast.LENGTH_SHORT).show();
+        if(TextUtils.isEmpty(dist)||TextUtils.isEmpty(time)||TextUtils.isEmpty(frame)
+                ||TextUtils.isEmpty(longitude)||TextUtils.isEmpty(latitude)){
+            Toast.makeText(this,"Please choose or fill all fields",Toast.LENGTH_SHORT).show();
         }
         else {
             final String urlString = "https://us-central1-pingterest-ffca7.cloudfunctions.net/findEvent?userLong="
-//                    + longitude
-                    +"84.3901"
+                    + longitude
+//                    +"84.3901"
                     +"&userLat="
-                    +"33.7812"
-//                    + latitude
+//                    +"33.7812"
+                    + latitude
                     + "&targetDist="
-//                    + dist
-                    +"50"
+                    + dist
+//                    +"50"
                     + "&targetDate="
-//                    + time
-                    +"2018/03/17/11/7"
+                    + time
+//                    +"2018/03/17/11/7"
                     + "&targetTime="
-//                    + frame
-                    +"72";
-
+                    + frame
+//                    +"72"
+                    ;
+            Log.d("MyURL", urlString);
             Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {

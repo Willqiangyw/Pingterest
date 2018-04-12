@@ -145,7 +145,7 @@ public class AddEventActivity extends AppCompatActivity
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         this.year = year;
-        this.month = month;
+        this.month = month+1;
         this.day = dayOfMonth;
         TimePickerDialog t = new TimePickerDialog(this, this, hour, minute,
                 DateFormat.is24HourFormat(AddEventActivity.this));

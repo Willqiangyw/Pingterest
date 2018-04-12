@@ -54,6 +54,12 @@ public class Main2Activity extends AppCompatActivity
 
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
+        if(user==null){
+            Intent intent = new Intent (this, LOGINPAGE.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
         assert user != null;
         userEmail = user.getEmail();
         assert userEmail != null;
